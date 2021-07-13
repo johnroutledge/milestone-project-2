@@ -1,0 +1,60 @@
+
+
+/*----------GAME CIRCLES*/
+.circle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    color: pink;
+    background-color: black;
+    display: inline-block;
+    position: absolute;
+}
+
+.circle.center {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    margin: 6rem;
+}
+
+.one {
+    top: -60px;
+    left: 70px;
+}
+
+.two {
+    right: -25px;
+    top: -25px;
+}
+
+.three {
+    right: -60px;
+    top: 70px;
+}
+
+.four {
+    right: -25px;
+    bottom: -25px;
+}
+
+.five {
+    bottom: -60px;
+    left: 70px;
+}
+
+.six {
+    left: -25px;
+    bottom: -25px;
+}
+
+.seven {
+    left: -60px;
+    top: 70px;
+}
+
+.eight {
+    left: -25px;
+    top: -25px;
+}
