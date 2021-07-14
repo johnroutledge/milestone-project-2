@@ -13,11 +13,16 @@
 }
 
 .circle.center {
+    left: 50%;
+    top: 10rem;
     width: 200px;
     height: 200px;
-    background-color: pink;
-    margin: 6rem;
+    background-color: white;
+    margin-left: -100px;
 }
+
+
+/*-----Credit: Stack Overflow: How to create circles around a circle with css, javascript?*/
 
 .one {
     top: -60px;
@@ -25,8 +30,8 @@
 }
 
 .two {
-    right: -25px;
-    top: -25px;
+    right: -20px;
+    top: -15px;
 }
 
 .three {
@@ -35,8 +40,8 @@
 }
 
 .four {
-    right: -25px;
-    bottom: -25px;
+    right: -20px;
+    bottom: -5px;
 }
 
 .five {
@@ -45,8 +50,8 @@
 }
 
 .six {
-    left: -25px;
-    bottom: -25px;
+    left: -20px;
+    bottom: -5px;
 }
 
 .seven {
@@ -55,6 +60,21 @@
 }
 
 .eight {
-    left: -25px;
-    top: -25px;
+    left: -20px;
+    top: -15px;
+}
+
+#clock {
+    font-size: 5rem;
+    position: absolute;
+    left: 60px;
+    top: 40px;
+}
+
+.playButton {
+    display: inline-block;
+    position: absolute;
+    bottom: -120px;
+    left: 50%;
+    margin-left: -20px;
 }
