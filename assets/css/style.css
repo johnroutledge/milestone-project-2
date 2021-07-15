@@ -31,7 +31,7 @@
 
 .two {
     right: -20px;
-    top: -15px;
+    top: -20px;
 }
 
 .three {
@@ -41,7 +41,7 @@
 
 .four {
     right: -20px;
-    bottom: -5px;
+    bottom: -15px;
 }
 
 .five {
@@ -51,7 +51,7 @@
 
 .six {
     left: -20px;
-    bottom: -5px;
+    bottom: -15px;
 }
 
 .seven {
@@ -61,7 +61,7 @@
 
 .eight {
     left: -20px;
-    top: -15px;
+    top: -20px;
 }
 
 #clock {
