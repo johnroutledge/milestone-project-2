@@ -8,7 +8,7 @@
 
  
 function resetGame() {
-    document.getElementById("score").innerHTML = 0;
+    document.getElementById("score").innerHTML = "Score: 0";
     clickedCircle = 0;
     direction = true;
     currentCircle = 1;
@@ -29,15 +29,10 @@ function playGame() {
             clickedCircle = (i + 1);
             console.log("clicked " + clickedCircle);
             console.log("next " + nextCircle);   
-        
             checkAnswer();  
         }
-        
     }
-
-      
 }
-
 
  //credit: Stack Overflow - How to set one minute counter in javascript
 function startClock() {
@@ -138,20 +133,18 @@ function checkAnswer() {
 function selectAction() {
     var action = actionWord[Math.floor(Math.random() * actionWord.length)];
     document.getElementById("action").innerHTML = action;
-    
-    
-    
 }
 
 //enter score update code here
 function updateScore() {
     currentScore = currentScore + 1;
-    document.getElementById("score").innerHTML = currentScore;
+    document.getElementById("score").innerHTML = "Score: " + currentScore;
 }
 
 //enter end of game code here
 function endGame() {
     console.log("game over!");
+    document.getElementById("action").innerHTML = "Game Over!";
     updateHighScore();
 }
 
