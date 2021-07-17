@@ -18,6 +18,8 @@ function resetGame() {
 }
 
 function playGame() {
+    endGame.called = false;
+    document.getElementsByClassName("neon-play").classList.add("disabled");
     selectAction();
     calculateCorrectCircle();
 
@@ -41,6 +43,12 @@ function startClock() {
         var clock = document.getElementById("clock");
         seconds--;
         clock.innerHTML = (seconds < 10 ? "0" : "") + String(seconds);
+        
+        if (endGame.called === true) {
+            seconds = 0;
+            endGame();
+        }        
+
         if( seconds > 0 ) {
             setTimeout(tick, 1000);
         } else {
@@ -50,6 +58,7 @@ function startClock() {
     }
 
     tick();
+
 }
 
 //gets the circle player just clicked
@@ -143,6 +152,7 @@ function updateScore() {
 
 //enter end of game code here
 function endGame() {
+    endGame.called = true;
     console.log("game over!");
     document.getElementById("action").innerHTML = "Game Over!";
     updateHighScore();
