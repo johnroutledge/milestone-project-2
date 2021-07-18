@@ -14,12 +14,13 @@ function resetGame() {
     currentCircle = 1;
     currentScore = 0;
     startClock();
+    
     playGame();
 }
 
 function playGame() {
     endGame.called = false;
-    document.getElementsByClassName("neon-play").classList.add("disabled");
+    // document.getElementsByClassName("neon-play").classList.add("disabled");
     selectAction();
     calculateCorrectCircle();
 
@@ -29,8 +30,7 @@ function playGame() {
     for (let i=0; i < circlesCount; i++) {
         circles[i].onclick = function () {
             clickedCircle = (i + 1);
-            console.log("clicked " + clickedCircle);
-            console.log("next " + nextCircle);   
+            highlightCurrentCircle();
             checkAnswer();  
         }
     }
@@ -38,7 +38,7 @@ function playGame() {
 
  //credit: Stack Overflow - How to set one minute counter in javascript
 function startClock() {
-    var seconds = 60;
+    var seconds = 10;
     function tick() {
         var clock = document.getElementById("clock");
         seconds--;
@@ -52,7 +52,6 @@ function startClock() {
         if( seconds > 0 ) {
             setTimeout(tick, 1000);
         } else {
-            alert("Time's Up!");
             endGame();
         }
     }
@@ -61,17 +60,34 @@ function startClock() {
 
 }
 
-//gets the circle player just clicked
-function getClickedCircle () {
+//gets the circle player just clicked - currently sitting in playGame function
+// function getClickedCircle () {
+//     var circles = document.getElementsByClassName("outer");
+//     var circlesCount = circles.length;
+    
+//     for (let i=0; i < circlesCount; i++) {
+//         circles[i].onclick = function () {
+//             clickedCircle = (i + 1);
+//             console.log("hey");
+//             highlightCurrentCircle();
+//         }
+//     }
+// }
+
+//highlights the current circle so player knows where they are
+function highlightCurrentCircle() {
     var circles = document.getElementsByClassName("outer");
     var circlesCount = circles.length;
     
     for (let i=0; i < circlesCount; i++) {
-        circles[i].onclick = function () {
-            clickedCircle = (i + 1);
+        if (i === clickedCircle -1) {
+            document.getElementById(i+1).classList.add("highlighted");
+        } else {
+            document.getElementById(i+1).classList.remove("highlighted");
         }
     }
 }
+
 
 //gets the current circle and current action word to calculate correct circle
 function calculateCorrectCircle() {
@@ -153,9 +169,22 @@ function updateScore() {
 //enter end of game code here
 function endGame() {
     endGame.called = true;
-    console.log("game over!");
-    document.getElementById("action").innerHTML = "Game Over!";
+    document.getElementById("action").innerHTML = "Game Over";
+    resetCircles();
     updateHighScore();
+}
+
+function resetCircles() {
+    var circles = document.getElementsByClassName("outer");
+    var circlesCount = circles.length;
+   
+    for (let i=0; i < circlesCount; i++) {
+         if (i===0) {
+            document.getElementById(i+1).classList.add("highlighted");
+         } else {
+            document.getElementById(i+1).classList.remove("highlighted");
+         }
+     } 
 }
 
 function updateHighScore() {

@@ -6,6 +6,10 @@
     <meta name="description" content="Milestone Project 2 - PopBangBoing">
     <meta name="keywords" content="Interactive Game">
     <meta name="author" content="John Routledge">
+    <script type="text/javascript" src="libraries/jquery.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <title>PopBangBoing | Home</title>
@@ -21,10 +25,10 @@
     <div class="container">
         <div id="center-circle" class="circle center">
             <div id="clock">00</div>
-            <div id="action">Ready?</div>
+            <div id="high-score">High: 000</div>
             <div id="score">Score: </div>
-            <div id="high-score">High: </div>
-            <div class="circle neon outer one" id="1"></div>
+            <div id="action">Ready?</div>
+            <div class="circle neon outer highlighted one" id="1"></div>
             <div class="circle neon outer two" id="2"></div>
             <div class="circle neon outer three" id="3"></div>
             <div class="circle neon outer four" id="4"></div>
@@ -40,7 +44,9 @@
     <!--FOOTER-->
     <footer>
         <div id="footer">
-           
+            <span class="d-none d-sm-block" id="footer-copyright">
+                &#169; 2021 John Routledge   
+            </span>
         </div>
     </footer>
     
