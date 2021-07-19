@@ -79,6 +79,8 @@ function highlightCurrentCircle() {
     var circles = document.getElementsByClassName("outer");
     var circlesCount = circles.length;
     
+    playAudio("click");
+
     for (let i=0; i < circlesCount; i++) {
         if (i === clickedCircle -1) {
             document.getElementById(i+1).classList.add("highlighted");
@@ -150,6 +152,7 @@ function checkAnswer() {
         playGame();
     } else {
         console.log("wrong");
+        playAudio("wrong");
         endGame();
     }
 }
@@ -174,6 +177,15 @@ function endGame() {
     updateHighScore();
 }
 
+//play selected sound
+function playAudio(soundName){
+    let sound = document.getElementById("audio");
+    let src = "assets/audio/" + soundName + ".wav"; 
+    console.log(src);
+    sound.src = src;
+    sound.play();
+}
+
 function resetCircles() {
     var circles = document.getElementsByClassName("outer");
     var circlesCount = circles.length;
@@ -193,5 +205,6 @@ function updateHighScore() {
     if (currentScore > highScore) {
         //add code to have pop-up high score notification
         document.getElementById("high-score").innerHTML = currentScore;
+        playSound("highScore");
     }
 }
