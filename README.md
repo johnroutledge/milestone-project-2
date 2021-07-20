@@ -97,7 +97,7 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 * The blah blah blah
 
 **Future Features to Implement**
-* A blah blah blah
+* Have extra leaderboards which save scores permanently. There could be one for the user's all-time best score, and another for all users globally.
 
 ***
 
@@ -155,7 +155,8 @@ Github repo...
 
 **Notable bug fixes**
 
-1. The ...
+1. When the first play() function is called, there is a noticable delay before the audio file is played. 
+All subsequent audio files play without delay.
 2. ...
 
 ***

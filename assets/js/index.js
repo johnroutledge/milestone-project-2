@@ -3,24 +3,24 @@
  let actionWord = ["Pop","Bang","Boing"];
  let direction = Boolean;
  let clickedCircle;
-
  let nextCircle;
-
  
 function resetGame() {
-    document.getElementById("score").innerHTML = "Score: 0";
+    document.getElementById("score").innerHTML = "Score:00";
     clickedCircle = 0;
     direction = true;
     currentCircle = 1;
     currentScore = 0;
+    countdown();
     startClock();
-    
+    document.getElementById("play-button").classList.add("disabled");
+    disableCircles(true);
     playGame();
 }
 
 function playGame() {
     endGame.called = false;
-    // document.getElementsByClassName("neon-play").classList.add("disabled");
+    disableCircles(false);
     selectAction();
     calculateCorrectCircle();
 
@@ -57,8 +57,26 @@ function startClock() {
     }
 
     tick();
-
 }
+
+function countdown() {
+    var seconds = 4;
+    function tick() {
+        var countdown = document.getElementById("action");
+        seconds--;
+        countdown.innerHTML = String(seconds);
+
+        if( seconds > 0 ) {
+            setTimeout(tick, 1000);
+        } else {
+            countdown.innerHTML = "Go!";
+        }
+    }
+
+    tick();
+}
+
+
 
 //gets the circle player just clicked - currently sitting in playGame function
 // function getClickedCircle () {
@@ -95,7 +113,6 @@ function highlightCurrentCircle() {
 function calculateCorrectCircle() {
     var step;
     var currentAction = document.getElementById("action").innerHTML;
-    console.log("CCC " + currentCircle);
     if (currentAction === "Pop") {
         step = 1;
     } else if (currentAction === "Bang") {
@@ -106,13 +123,9 @@ function calculateCorrectCircle() {
     
 
     if (direction) { 
-        console.log("direction is true");
         nextCircle = currentCircle + step;
-        console.log(nextCircle);
     } else { 
-        console.log("direction is false");
         nextCircle = currentCircle - step;
-        console.log(nextCircle);
     }
 
     if (nextCircle === 9) {
@@ -130,15 +143,12 @@ function calculateCorrectCircle() {
     switch(currentAction) {
         case "Pop":
         direction = direction;
-        console.log(direction);
         break;
         case "Boing":
         direction = direction;
-        console.log(direction);
         break;
         case "Bang":
         direction = !direction;
-        console.log(direction);
         break;
     }
 
@@ -147,11 +157,9 @@ function calculateCorrectCircle() {
 
 function checkAnswer() {
     if (clickedCircle === nextCircle) {
-        console.log("correct");
         updateScore();
         playGame();
     } else {
-        console.log("wrong");
         playAudio("wrong");
         endGame();
     }
@@ -165,23 +173,26 @@ function selectAction() {
 
 //enter score update code here
 function updateScore() {
+    var score = document.getElementById("score");
+
     currentScore = currentScore + 1;
-    document.getElementById("score").innerHTML = "Score: " + currentScore;
+    score.innerHTML = "Score:" + (currentScore < 10 ? "0" : "") + String(currentScore);
 }
 
 //enter end of game code here
 function endGame() {
     endGame.called = true;
+    disableCircles(true);
     document.getElementById("action").innerHTML = "Game Over";
+    document.getElementById("play-button").classList.remove("disabled");
     resetCircles();
     updateHighScore();
 }
 
 //play selected sound
-function playAudio(soundName){
+function playAudio(soundName) {
     let sound = document.getElementById("audio");
     let src = "assets/audio/" + soundName + ".wav"; 
-    console.log(src);
     sound.src = src;
     sound.play();
 }
@@ -199,12 +210,28 @@ function resetCircles() {
      } 
 }
 
+function disableCircles(onOff) {
+    var circles = document.getElementsByClassName("outer");
+    var circlesCount = circles.length;
+   
+    for (let i=0; i < circlesCount; i++) {
+         if (onOff) {
+            document.getElementById(i+1).classList.add("disabled");
+         } else {
+            document.getElementById(i+1).classList.remove("disabled");
+         }
+     } 
+}
+
 function updateHighScore() {
-    highScore = document.getElementById("high-score").innerHTML;
+    highScore = document.getElementById("high-score").innerHTML.slice(-2);
     
     if (currentScore > highScore) {
         //add code to have pop-up high score notification
-        document.getElementById("high-score").innerHTML = currentScore;
-        playSound("highScore");
+        if (currentScore < 10) {
+            currentScore = "0" + String(currentScore);
+        }
+        document.getElementById("high-score").innerHTML = "High:" + currentScore;
+        playAudio("highscore");
     }
 }
