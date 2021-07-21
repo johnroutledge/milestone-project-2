@@ -7,6 +7,7 @@
     <meta name="keywords" content="Interactive Game">
     <meta name="author" content="John Routledge">
     <script type="text/javascript" src="libraries/jquery.js"></script>
+    <script type="text/javascript" src="libraries/bootstrap.bundle.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <title>PopBangBoing | Home</title>
 </head>
+<!-- <body onload="loadInstructionsModal()"> -->
 <body>
     
     <!--NAVBAR-->
@@ -49,6 +51,31 @@
             </span>
         </div>
     </footer>
+    
+    <!--INSTRUCTIONS MODAL-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="instructionsModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title w-100 text-center">Pop Bang Boing</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Score as many points as you can in 30 seconds.</p>
+                    <p>The game starts from the top circle in a clockwise direction.</p>
+                    <p>The action word determines the next circle:</p>
+                    <ul>
+                        <li>Pop = click adjacent circle in the same direction</li>
+                        <li>Bang = click adjacent circle in the opposite direction (also reverses the direction)</li>
+                        <li>Boing = click next-but-one circle in the same direction</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
     
     <script type="text/javascript" src="assets/js/index.js"></script>
 </body>

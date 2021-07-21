@@ -94,7 +94,8 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 ## Features
 
 **Implemented**
-* The blah blah blah
+* Classic game play sound effects to maintain a retro feel and also give extra user feedback
+* Blah blah blah
 
 **Future Features to Implement**
 * Have extra leaderboards which save scores permanently. There could be one for the user's all-time best score, and another for all users globally.
@@ -156,7 +157,7 @@ Github repo...
 **Notable bug fixes**
 
 1. When the first play() function is called, there is a noticable delay before the audio file is played. 
-All subsequent audio files play without delay.
+All subsequent audio files play without delay. Having tried various fixes (using MP3 files instead of WAV) without success, I decided to just play an empty sound before the start of the game. This fixed the problem as now the sounds are immediate when clicking circles during gameplay.
 2. ...
 
 ***

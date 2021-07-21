@@ -9,17 +9,22 @@ function resetGame() {
     document.getElementById("score").innerHTML = "Score:00";
     clickedCircle = 0;
     direction = true;
+    endGame.called = false;
     currentCircle = 1;
     currentScore = 0;
-    countdown();
+    // countdown();
     startClock();
     document.getElementById("play-button").classList.add("disabled");
     disableCircles(true);
+    
+    //this is a bugfix for audio delay when clicking during game play - see README for more
+    playAudio("silence");
     playGame();
 }
 
 function playGame() {
-    endGame.called = false;
+    // endGame.called = false;
+    // startClock();
     disableCircles(false);
     selectAction();
     calculateCorrectCircle();
@@ -45,8 +50,8 @@ function startClock() {
         clock.innerHTML = (seconds < 10 ? "0" : "") + String(seconds);
         
         if (endGame.called === true) {
-            seconds = 0;
-            endGame();
+             seconds = 0;
+            //  endGame();
         }        
 
         if( seconds > 0 ) {
@@ -185,6 +190,7 @@ function endGame() {
     disableCircles(true);
     document.getElementById("action").innerHTML = "Game Over";
     document.getElementById("play-button").classList.remove("disabled");
+    document.getElementById("clock").innerHTML = "00";
     resetCircles();
     updateHighScore();
 }
@@ -233,5 +239,10 @@ function updateHighScore() {
         }
         document.getElementById("high-score").innerHTML = "High:" + currentScore;
         playAudio("highscore");
+        document.getElementById("action").innerHTML = "New High!";
     }
+}
+
+function loadInstructionsModal() {
+    $('#instructionsModal').modal('show');
 }

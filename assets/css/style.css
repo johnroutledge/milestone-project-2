@@ -1,6 +1,6 @@
 body {
     background-color: black;
-    cursor: none;
+    /* cursor: none; */
     font-family: 'Press Start 2P', cursive;
 }
 
@@ -209,4 +209,26 @@ footer {
     font-weight: bold;
     padding-left: 10px;
     padding-top: 12px;
+}
+
+/*----------INSTRUCTIONS MODAL*/
+
+.modal {
+    background-color: black;
+    
+    color: var(--clr-neon);
+    font-size: smaller;
+}
+
+.modal-body {
+    background-color: black;
+}
+
+.modal-header {
+    background-color: black;
+}
+
+.modal-content {
+    border-style: solid;
+    border-color: var(--clr-neon); 
 }
