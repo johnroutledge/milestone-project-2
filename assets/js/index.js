@@ -57,6 +57,7 @@ function startClock() {
         if( seconds > 0 ) {
             setTimeout(tick, 1000);
         } else {
+            playAudio("times_up");
             endGame();
         }
     }
@@ -165,7 +166,12 @@ function checkAnswer() {
         updateScore();
         playGame();
     } else {
+        document.getElementById("action").innerHTML = "Oops!";
+        console.log(document.getElementById("action").innerHTML);
         playAudio("wrong");
+        console.log('before');
+        wait(1000);  //1 seconds in milliseconds
+        console.log('after');
         endGame();
     }
 }
@@ -203,6 +209,7 @@ function playAudio(soundName) {
     sound.play();
 }
 
+//clears all circles and highlights the top one
 function resetCircles() {
     var circles = document.getElementsByClassName("outer");
     var circlesCount = circles.length;
@@ -246,3 +253,49 @@ function updateHighScore() {
 function loadInstructionsModal() {
     $('#instructionsModal').modal('show');
 }
+
+//performs a demonstration of game play
+function demoMode() {
+    clickedCircle = 0;
+    direction = true;
+    currentCircle = 1;
+    document.getElementById("score").innerHTML = "Demo mode";
+    resetCircles();
+    
+             
+    selectAction();
+    calculateCorrectCircle();
+    console.log('before');
+    wait(1000);  //1 seconds in milliseconds
+    console.log('after');
+    // highlightCorrectCircle();
+    console.log('before');
+    wait(1000);  //1 seconds in milliseconds
+    console.log('after'); 
+}
+
+function highlightCorrectCircle() {
+    var circles = document.getElementsByClassName("outer");
+    var circlesCount = circles.length;
+    
+    for (let i=0; i < circlesCount; i++) {
+        if (i === nextCircle -1) {
+            document.getElementById(i+1).classList.add("highlighted");
+        } else {
+            document.getElementById(i+1).classList.remove("highlighted");
+        }
+    }
+}
+
+function pauseDemo() {
+    console.log("Hello");
+    setTimeout(() => {  console.log("World!"); }, 2000);
+}
+
+function wait(ms){
+    var start = new Date().getTime();
+    var end = start;
+    while(end < start + ms) {
+      end = new Date().getTime();
+   }
+ }

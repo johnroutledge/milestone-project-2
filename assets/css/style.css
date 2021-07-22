@@ -125,13 +125,22 @@ body {
 .neon-play {
     display: inline-block;
     position: absolute;
-    bottom: -150px;
-    left: 50%;
-    width: 100px;
-    margin-left: -55px;
     text-decoration: none;
     user-select: none;
-    
+}
+
+#play-button {
+    bottom: -150px;
+    left: 20%;
+    width: 100px;
+    margin-left: -55px;
+}
+
+#demo-button {
+    bottom: -150px;
+    left: 80%;
+    width: 100px;
+    margin-left: -55px;
 }
 
 .neon-play::before {
