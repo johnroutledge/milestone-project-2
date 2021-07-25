@@ -1,7 +1,17 @@
 body {
-    background-color: black;
-    /* cursor: none; */
+    /* background-color: black; */
+    background: url("../images/retro-arcade.jpg") no-repeat bottom left fixed;
+    background-size: cover;
     font-family: 'Press Start 2P', cursive;
+    
+}
+
+#gameplay {
+    background-color: black;
+    top: 0;
+    left: 0;
+    position: relative;
+    
 }
 
 /*----------GAME CIRCLES*/
@@ -12,7 +22,7 @@ body {
     text-align: center;
     color: var(--clr-neon);
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-    background-color: black;
+    /* background-color: black; */
     display: inline-block;
     position: absolute;
 }
@@ -22,7 +32,7 @@ body {
     top: 10rem;
     width: 200px;
     height: 200px;
-    background-color: black;
+    
     margin-left: -100px;
 }
 
@@ -97,7 +107,11 @@ body {
     position: absolute;
 }
 
-
+.container {
+    
+   
+    
+}
 
 .highlighted {
     background: var(--clr-neon);

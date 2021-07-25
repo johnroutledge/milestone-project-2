@@ -43,7 +43,7 @@ function playGame() {
 
  //credit: Stack Overflow - How to set one minute counter in javascript
 function startClock() {
-    var seconds = 10;
+    var seconds = 20;
     function tick() {
         var clock = document.getElementById("clock");
         seconds--;
@@ -139,13 +139,13 @@ function calculateCorrectCircle() {
     } else if (nextCircle === 10) {
         nextCircle = 2;
     } else if (nextCircle === -1) {
-        nextCircle = 8;
-    } else if (nextCircle === -2) {
         nextCircle = 7;
+    // } else if (nextCircle === -2) {
+    //     nextCircle = 7;
     } else if (nextCircle === 0) {
         nextCircle = 8;
     }
-    
+    console.log(nextCircle);
     switch(currentAction) {
         case "Pop":
         direction = direction;
@@ -252,6 +252,10 @@ function updateHighScore() {
 
 function loadInstructionsModal() {
     $('#instructionsModal').modal('show');
+}
+
+function hideModal() {
+    $('#instructionsModal').modal('hide'); 
 }
 
 //performs a demonstration of game play
