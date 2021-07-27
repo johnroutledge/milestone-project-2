@@ -25,6 +25,7 @@
     
     <!--MAIN CONTENT-->
     <div class="container">
+        <marquee id="marquee-text">Pop Bang Boing - how high can you go in 30 seconds?</marquee>
         <div id="gameplay">
             <div id="center-circle" class="circle center">
                 <div id="clock">00</div>
@@ -39,10 +40,13 @@
                 <div class="circle neon outer six" id="6"></div>
                 <div class="circle neon outer seven" id="7"></div>
                 <div class="circle neon outer eight" id="8"></div>
-                <div class="neon-play" id="play-button" onClick="resetGame()">Play</div>
-                <div class="neon-play" id="demo-button" onClick="demoMode()">Demo</div>
+                <div class="neon-button" id="play-button" onClick="resetGame()">Play</div>
+                <div class="neon-button" id="demo-button" onClick="demoMode()">Demo</div>
+                <div class="neon-button" id="help-button" onClick="loadInstructionsModal()">Help</div>
             </div>
+            
         </div>
+        
         <audio id="audio" src=""></audio>
     </div>
     
@@ -61,7 +65,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title w-100 text-center">Pop Bang Boing</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="hideModal()">
+                    <button type="button" id="modal-close" class="close" data-dismiss="modal" aria-label="Close" onClick="hideModal()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>

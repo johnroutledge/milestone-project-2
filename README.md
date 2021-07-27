@@ -107,6 +107,7 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 * HTML
 * CSS
 * JavaScript
+* JQuery
 * Github/Gitpod
 * BootstrapCDN (Bootstrap 4)
 * Font Awesome
@@ -158,7 +159,7 @@ Github repo...
 
 1. When the first play() function is called, there is a noticable delay before the audio file is played. 
 All subsequent audio files play without delay. Having tried various fixes (using MP3 files instead of WAV) without success, I decided to just play an empty sound before the start of the game. This fixed the problem as now the sounds are immediate when clicking circles during gameplay.
-2. ...
+2. Having played the game numerous times to make sure it played correctly, I noticed that when landing on circle number 1 (in the 12 o'clock position) in an anti-clockwise direction, if the next action word was 'boing' then the game flagged up wrong when clicking on the correct circle (number seven). Having done a console.log to see which circle it was expecting, it turned out to be circle eight rather than circle seven.  After looking at the code to see what the error could be, I discovered that I had mis-calculated when experiencing a negative number in my if...else if statement in the calculateCorrectCircle function.
 
 ***
 

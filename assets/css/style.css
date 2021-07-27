@@ -1,9 +1,16 @@
 body {
-    /* background-color: black; */
     background: url("../images/retro-arcade.jpg") no-repeat bottom left fixed;
     background-size: cover;
     font-family: 'Press Start 2P', cursive;
-    
+}
+
+#marquee-text {
+    font-size: bigger;
+    left: 50%;
+    margin-left: 350px;
+    width: 400px;
+    color: var(--clr-neon);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
 }
 
 #gameplay {
@@ -11,7 +18,6 @@ body {
     top: 0;
     left: 0;
     position: relative;
-    
 }
 
 /*----------GAME CIRCLES*/
@@ -22,7 +28,6 @@ body {
     text-align: center;
     color: var(--clr-neon);
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-    /* background-color: black; */
     display: inline-block;
     position: absolute;
 }
@@ -32,7 +37,6 @@ body {
     top: 10rem;
     width: 200px;
     height: 200px;
-    
     margin-left: -100px;
 }
 
@@ -107,12 +111,6 @@ body {
     position: absolute;
 }
 
-.container {
-    
-   
-    
-}
-
 .highlighted {
     background: var(--clr-neon);
     /* box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);  */
@@ -126,7 +124,7 @@ body {
     --clr-bg: hsl(323 21% 16%);
 }
 
-.neon, .neon-play {
+.neon, .neon-button {
     cursor: pointer;
     text-decoration: none;
     color: var(--clr-neon);
@@ -136,7 +134,7 @@ body {
     box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
 }
 
-.neon-play {
+.neon-button {
     display: inline-block;
     position: absolute;
     text-decoration: none;
@@ -145,19 +143,26 @@ body {
 
 #play-button {
     bottom: -150px;
-    left: 20%;
+    left: 50%;
     width: 100px;
-    margin-left: -55px;
+    margin-left: -50px;
 }
 
 #demo-button {
     bottom: -150px;
-    left: 80%;
+    left: 90%;
     width: 100px;
-    margin-left: -55px;
+    margin-left: -5px;
 }
 
-.neon-play::before {
+#help-button {
+    bottom: -150px;
+    right: 90%;
+    width: 100px;
+    margin-left: -5px;
+}
+
+.neon-button::before {
     pointer-events: none;
     content: "";
     position: absolute;
@@ -172,7 +177,7 @@ body {
     opacity: 0.7;
   }
   
-.neon-play::after {
+.neon-button::after {
     content: "";
     position: absolute;
     top: 0;
@@ -186,18 +191,18 @@ body {
     transition: opacity 100ms linear;
   }
   
-  .neon-play:hover,
-  .neon-play:focus {
+  .neon-button:hover,
+  .neon-button:focus {
     color: var(--clr-bg);
     text-shadow: none;
   }
   
-  .neon-play:hover::before,
-  .neon-play:focus::before {
+  .neon-button:hover::before,
+  .neon-button:focus::before {
     opacity: 1;
   }
-  .neon-play:hover::after,
-  .neon-play:focus::after {
+  .neon-button:hover::after,
+  .neon-button:focus::after {
     opacity: 1;
   }
 
@@ -237,21 +242,31 @@ footer {
 /*----------INSTRUCTIONS MODAL*/
 
 .modal {
-    background-color: black;
-    
     color: var(--clr-neon);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
     font-size: smaller;
+    /* border-style: solid;
+    border-color: var(--clr-neon); */
 }
 
 .modal-body {
     background-color: black;
+    border-style:solid;
+    border-color: var(--clr-neon); 
 }
 
 .modal-header {
     background-color: black;
-}
-
-.modal-content {
     border-style: solid;
     border-color: var(--clr-neon); 
 }
+
+#modal-close {
+    color: var(--clr-neon);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+}
+
+/* .modal-content {
+    border-style: solid;
+    border-color: var(--clr-neon); 
+} */
