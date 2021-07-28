@@ -30,6 +30,7 @@ body {
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
     display: inline-block;
     position: absolute;
+    
 }
 
 .circle.center {
@@ -38,6 +39,7 @@ body {
     width: 200px;
     height: 200px;
     margin-left: -100px;
+    
 }
 
 /*-----Credit: Stack Overflow: How to create circles around a circle with css, javascript?*/
@@ -87,6 +89,7 @@ body {
     position: absolute;
     left: 65px;
     top: 140px;
+    pointer-events: none;
 }
 
 #high-score {
@@ -94,6 +97,7 @@ body {
     top: 10px;
     left: 40px;
     font-size:1rem;
+    pointer-events: none;
 }
 
 #score {
@@ -101,6 +105,7 @@ body {
     top: 45px;
     left: 25px;
     position: absolute;
+    pointer-events: none;
 }
 
 #action {
@@ -109,6 +114,7 @@ body {
     width: 100%;
     top: 85px;
     position: absolute;
+    pointer-events: none;
 }
 
 .highlighted {
@@ -162,6 +168,38 @@ body {
     margin-left: -5px;
 }
 
+.neon-circle::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background: var(--clr-neon);
+    /* top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%; */
+    border-radius: 100%;
+    /* transform: perspective(1em) rotateX(40deg) scale(1, 0.35); */
+    filter: blur(1em);
+    opacity: 0.7;
+  }
+  
+.neon-circle::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 0 2em 0.5em var(--clr-neon);
+    opacity: 0;
+    background-color: var(--clr-neon);
+    z-index: -1;
+    transition: opacity 100ms linear;
+  }
+
 .neon-button::before {
     pointer-events: none;
     content: "";
@@ -191,16 +229,24 @@ body {
     transition: opacity 100ms linear;
   }
   
+
+  .neon-circle:hover,
+  .neon-circle:focus,
   .neon-button:hover,
   .neon-button:focus {
     color: var(--clr-bg);
     text-shadow: none;
   }
   
+  .neon-circle:hover::before,
+  .neon-circle:focus::before,
   .neon-button:hover::before,
   .neon-button:focus::before {
     opacity: 1;
   }
+  
+  .neon-circle:hover::after,
+  .neon-circle:focus::after,
   .neon-button:hover::after,
   .neon-button:focus::after {
     opacity: 1;

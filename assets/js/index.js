@@ -1,25 +1,47 @@
  let currentScore = 0;
  let highScore = 0;
  let actionWord = ["Pop","Bang","Boing"];
- let direction = Boolean;
+ let direction;
  let clickedCircle;
  let nextCircle;
  
 function resetGame() {
     document.getElementById("score").innerHTML = "Score:00";
+    document.getElementById("action").innerHTML = "Ready?";
     clickedCircle = 0;
     direction = true;
     endGame.called = false;
     currentCircle = 1;
     currentScore = 0;
     // countdown();
-    startClock();
-    document.getElementById("play-button").classList.add("disabled");
-    disableCircles(true);
+
+    let timeleft = 3;
+    let downloadTimer = setInterval(function(){
+         if(timeleft <= 0){
+            clearInterval(downloadTimer);
+            document.getElementById("action").innerHTML = "GO!";
+            startClock();
+            document.getElementById("help-button").classList.add("disabled");
+            document.getElementById("play-button").classList.add("disabled");
+            document.getElementById("demo-button").classList.add("disabled");
+            disableCircles(true);
+            
+            //this is a bugfix for audio delay when clicking during game play - see README for more
+            playAudio("silence");
+            playGame();
+         } else {
+             document.getElementById("action").innerHTML = timeleft;
+         }
+         timeleft -= 1;
+    }, 1000);
+
+    // startClock();
+    // document.getElementById("play-button").classList.add("disabled");
+    // disableCircles(true);
     
-    //this is a bugfix for audio delay when clicking during game play - see README for more
-    playAudio("silence");
-    playGame();
+    // //this is a bugfix for audio delay when clicking during game play - see README for more
+    // playAudio("silence");
+    // playGame();
 }
 
 function playGame() {
@@ -195,7 +217,9 @@ function endGame() {
     endGame.called = true;
     disableCircles(true);
     document.getElementById("action").innerHTML = "Game Over";
+    document.getElementById("help-button").classList.remove("disabled");
     document.getElementById("play-button").classList.remove("disabled");
+    document.getElementById("demo-button").classList.remove("disabled");
     document.getElementById("clock").innerHTML = "00";
     resetCircles();
     updateHighScore();
