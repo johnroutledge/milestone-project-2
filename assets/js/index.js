@@ -15,7 +15,7 @@ function resetGame() {
     currentScore = 0;
     // countdown();
 
-    let timeleft = 3;
+    let timeleft = 4;
     let downloadTimer = setInterval(function(){
          if(timeleft <= 0){
             clearInterval(downloadTimer);
@@ -29,9 +29,13 @@ function resetGame() {
             //this is a bugfix for audio delay when clicking during game play - see README for more
             playAudio("silence");
             playGame();
-         } else {
-             document.getElementById("action").innerHTML = timeleft;
-         }
+        } else if (timeleft === 1) {
+             document.getElementById("action").innerHTML = "Go!";
+        } else {
+            document.getElementById("action").innerHTML = (timeleft - 1);
+        }
+
+
          timeleft -= 1;
     }, 1000);
 

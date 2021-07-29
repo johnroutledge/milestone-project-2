@@ -4,6 +4,13 @@ body {
     font-family: 'Press Start 2P', cursive;
 }
 
+.container {
+    max-width: 2000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+
 #marquee-text {
     font-size: bigger;
     left: 50%;
@@ -14,10 +21,18 @@ body {
 }
 
 #gameplay {
-    background-color: black;
-    top: 0;
+    /* background-color: black; */
+    /* top: 0;
     left: 0;
-    position: relative;
+    position: relative; */
+
+    position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	
+	margin: auto;
 }
 
 /*----------GAME CIRCLES*/
@@ -316,3 +331,18 @@ footer {
     border-style: solid;
     border-color: var(--clr-neon); 
 } */
+
+/*----------MEDIA QUERIES*/
+@media screen and (max-width: 700px){
+    body {
+        background: url("../images/mobile-background.jpg") no-repeat center fixed;
+        background-size: cover;
+     }
+
+     #gameplay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+    }
+}
