@@ -9,30 +9,24 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 0;
+    position: relative;
+    /* height: 90vh; */
 }
 
 #marquee-text {
     font-size: bigger;
-    left: 50%;
-    margin-left: 350px;
-    width: 400px;
+    width: 40%;
+    margin-left: 30%;
     color: var(--clr-neon);
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
 }
 
 #gameplay {
-    /* background-color: black; */
-    /* top: 0;
-    left: 0;
-    position: relative; */
-
+    height: 90%;
+    margin: 0;
     position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-  	
-	margin: auto;
+    top: 50%;
+    left: 50%;
 }
 
 /*----------GAME CIRCLES*/
@@ -45,16 +39,14 @@ body {
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
     display: inline-block;
     position: absolute;
-    
 }
 
 .circle.center {
     left: 50%;
-    top: 10rem;
+    top: 15rem;
     width: 200px;
     height: 200px;
     margin-left: -100px;
-    
 }
 
 /*-----Credit: Stack Overflow: How to create circles around a circle with css, javascript?*/
@@ -150,7 +142,7 @@ body {
     text-decoration: none;
     color: var(--clr-neon);
     border: var(--clr-neon) 0.125em solid;
-    padding: 0.25em 1em;
+    /* padding: 0.25em 1em; */
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
     box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
 }
@@ -160,27 +152,28 @@ body {
     position: absolute;
     text-decoration: none;
     user-select: none;
+    text-align: center;
 }
 
 #play-button {
     bottom: -150px;
     left: 50%;
-    width: 100px;
-    margin-left: -50px;
+    width: 90px;
+    margin-left: -45px;
 }
 
 #demo-button {
     bottom: -150px;
     left: 90%;
-    width: 100px;
-    margin-left: -5px;
+    width: 90px;
+    margin-left: -25px;
 }
 
 #help-button {
     bottom: -150px;
-    right: 90%;
-    width: 100px;
-    margin-left: -5px;
+    right: 80%;
+    width: 90px;
+    margin-right: -5px;
 }
 
 .neon-circle::before {
@@ -197,7 +190,7 @@ body {
     filter: blur(1em);
     opacity: 0.7;
   }
-  
+
 .neon-circle::after {
     content: "";
     position: absolute;
@@ -224,12 +217,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-  
     transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
     filter: blur(1em);
     opacity: 0.7;
   }
-  
+
 .neon-button::after {
     content: "";
     position: absolute;
@@ -243,7 +235,6 @@ body {
     z-index: -1;
     transition: opacity 100ms linear;
   }
-  
 
   .neon-circle:hover,
   .neon-circle:focus,
@@ -252,14 +243,14 @@ body {
     color: var(--clr-bg);
     text-shadow: none;
   }
-  
+
   .neon-circle:hover::before,
   .neon-circle:focus::before,
   .neon-button:hover::before,
   .neon-button:focus::before {
     opacity: 1;
   }
-  
+
   .neon-circle:hover::after,
   .neon-circle:focus::after,
   .neon-button:hover::after,
@@ -306,20 +297,18 @@ footer {
     color: var(--clr-neon);
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
     font-size: smaller;
-    /* border-style: solid;
-    border-color: var(--clr-neon); */
 }
 
 .modal-body {
     background-color: black;
     border-style:solid;
-    border-color: var(--clr-neon); 
+    border-color: var(--clr-neon);
 }
 
 .modal-header {
     background-color: black;
     border-style: solid;
-    border-color: var(--clr-neon); 
+    border-color: var(--clr-neon);
 }
 
 #modal-close {
@@ -327,22 +316,20 @@ footer {
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
 }
 
-/* .modal-content {
-    border-style: solid;
-    border-color: var(--clr-neon); 
-} */
-
 /*----------MEDIA QUERIES*/
 @media screen and (max-width: 700px){
-    body {
+    /* body {
         background: url("../images/mobile-background.jpg") no-repeat center fixed;
         background-size: cover;
-     }
+     } */
 
-     #gameplay {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
+    #marquee-text {
+        margin-left: 0 ;
+        left: 0;
+        width: 100%;
+    }
+
+    .circle.center {
+        top: 10rem;
     }
 }

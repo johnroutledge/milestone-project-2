@@ -204,8 +204,11 @@ function checkAnswer() {
 
 // select random action from actionWord array 
 function selectAction() {
+    let actionText = document.getElementById("action");
     var action = actionWord[Math.floor(Math.random() * actionWord.length)];
-    document.getElementById("action").innerHTML = action;
+    actionText.innerHTML = action;
+    let randomColor = Math.floor(Math.random() * 360) + 1;
+    actionText.style.color = "hsl(" + randomColor + ",100%,54%)";
 }
 
 //enter score update code here
@@ -220,7 +223,9 @@ function updateScore() {
 function endGame() {
     endGame.called = true;
     disableCircles(true);
-    document.getElementById("action").innerHTML = "Game Over";
+    let actionText = document.getElementById("action");
+    actionText.innerHTML = "Game Over";
+    actionText.style.color = "hsl(317,100%,54%)";
     document.getElementById("help-button").classList.remove("disabled");
     document.getElementById("play-button").classList.remove("disabled");
     document.getElementById("demo-button").classList.remove("disabled");
@@ -294,16 +299,17 @@ function demoMode() {
     document.getElementById("score").innerHTML = "Demo mode";
     resetCircles();
     
-             
-    selectAction();
-    calculateCorrectCircle();
-    console.log('before');
-    wait(1000);  //1 seconds in milliseconds
-    console.log('after');
-    // highlightCorrectCircle();
-    console.log('before');
-    wait(1000);  //1 seconds in milliseconds
-    console.log('after'); 
+    for (let i=0; i < 8; i++) {        
+        selectAction();
+        calculateCorrectCircle();
+        console.log('before');
+        wait(1000);  //1 seconds in milliseconds
+        console.log('after');
+        // highlightCorrectCircle();
+        console.log('before');
+        wait(1000);  //1 seconds in milliseconds
+        console.log('after');
+    }
 }
 
 function highlightCorrectCircle() {
