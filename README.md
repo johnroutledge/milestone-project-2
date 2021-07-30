@@ -3,7 +3,7 @@
 
 ![Main Mockup](https://johnroutledge.github.io/milestone-project-2/assets/images/mockup.jpg "Main Mockup")
 
-[Link to Live Website](https://johnroutledge.github.io/-milestone-project-2/index.html)
+[Link to Live Website](https://johnroutledge.github.io/milestone-project-2/index.html)
 
 [GitHub Repo](https://github.com/johnroutledge/milestone-project-2)
 
