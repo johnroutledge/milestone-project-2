@@ -50,43 +50,42 @@ body {
 }
 
 /*-----Credit: Stack Overflow: How to create circles around a circle with css, javascript?*/
-
-.one {
+.zero {
     top: -60px;
     left: 70px;
 }
 
-.two {
+.one {
     right: -20px;
     top: -20px;
 }
 
-.three {
+.two {
     right: -60px;
     top: 70px;
 }
 
-.four {
+.three {
     right: -20px;
     bottom: -15px;
 }
 
-.five {
+.four {
     bottom: -60px;
     left: 70px;
 }
 
-.six {
+.five {
     left: -20px;
     bottom: -15px;
 }
 
-.seven {
+.six {
     left: -60px;
     top: 70px;
 }
 
-.eight {
+.seven {
     left: -20px;
     top: -20px;
 }
@@ -126,7 +125,6 @@ body {
 
 .highlighted {
     background: var(--clr-neon);
-    /* box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);  */
     box-shadow: 0 0 2em 0.5em var(--clr-neon);
     opacity: 1;
 }
@@ -159,21 +157,21 @@ body {
     bottom: -150px;
     left: 50%;
     width: 90px;
-    margin-left: -45px;
+    margin-left: 10px;
 }
 
-#demo-button {
+/* #demo-button {
     bottom: -150px;
     left: 90%;
     width: 90px;
     margin-left: -25px;
-}
+} */
 
 #help-button {
     bottom: -150px;
-    right: 80%;
+    left: 50%;
     width: 90px;
-    margin-right: -5px;
+    margin-left: -110px;
 }
 
 .neon-circle::before {
