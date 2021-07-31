@@ -71,20 +71,18 @@ User Stories:
 
 **Structure**
 
-To make sure the game intuitive to navigate, I kept the controls to a minimum. 
-Through a minimum of visual content, I reduced distraction and maximized engagement.
+To make sure the game intuitive to navigate and play, I kept the controls in a central position. This is very important for 
+mobile users as it allows for one-handed gameplay and also for desktop users as it keeps mouse-movement to a single movement.
+Through a minimum of visual content, I also reduced distraction and maximized engagement.
 
 
 **Skeleton**
 
 ![Wireframes](https://johnroutledge.github.io/milestone-project-2/assets/images/MS2_gameplay_wireframes.png "Wireframes")
 
-The key reasoning behind the design of the game was to disclose information progressively by giving snippets of what 
-lay on other pages.  By using icons and breaking it into three main sections which mirror the three main user/business needs,
-this also minimized cognitive overload.
-
-By being consistent with the design and simplicity of all pages, it is both predictable and intuitive, and therefore increases the overall UX.
-
+To make sure the game intuitive to navigate and play, I kept the controls in a central position. This is very important for 
+mobile users as it allows for one-handed gameplay and also for desktop users as it keeps mouse-movement to a single movement.
+Through a minimum of visual content, I also reduced distraction and maximized engagement.
 
 **Surface**
 
@@ -96,11 +94,17 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 ## Features
 
 **Implemented**
-* Classic game play sound effects to maintain a retro feel and also give extra user feedback
-* Blah blah blah
+* Highlighted buttons on hover to enhance the UX and intuitiveness of gameplay
+* Random color each time action word changes to emphasise when a new action appears
+* Neon color scheme and fonts to give a retro feel
+* Classic game play sound effects to maintain the retro feel and also give extra user feedback
+* Instructions that load as a modal when page is loaded and also when 'help' button is pressed
+* High score area to add an element of competitiveness
 
 **Future Features to Implement**
 * Have extra leaderboards which save scores permanently. There could be one for the user's all-time best score, and another for all users globally.
+* Add a demo mode which helps visual learners with the game instructions
+* Give a choice of background images and color schemes to add to the UX
 
 ***
 
@@ -123,11 +127,28 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 
 |  Test Label                                   | Action         | Expected Outcome                                          | Test Outcome  |
 |-----------------------------------------------|----------------|-----------------------------------------------------------|---------------|
-|  Media Query mobile screen size               | Resize screen  |  All pages should display correctly on iPhone 5           | PASS          |
-|  Media Query tablet screen size               | Resize screen  |  All pages should display correctly on iPad               | PASS          |
-|  Media Query desktop screen size              | Resize screen  |  All pages should display correctly on 14 inch screen     | PASS          |
-|  Media Query 5k screen size                   | Resize screen  |  All pages should display correctly on 5k screen          | PASS          |
-
+|  Initial page load                            | Page load      |  Instrucion modal should appear on top                    | PASS          |
+|  Instruction modal close button               | Click          |  Instruction modal should close when clicked              | PASS          |
+|  Marquee text                                 | Page load      |  Should scroll consistently at all times                  | PASS          |
+|  Help button                                  | Click          |  Instrucion modal should appear on top                    | PASS          |
+|  Play button                                  | Click          |  Countdown should trigger followed by game start          | PASS          |
+|  Gameplay timer                               | In-play        |  Should run for 30 seconds unless incorrect button click  | PASS          |
+|  Action word                                  | In-play        |  Should change to new action if correct button clicked    | PASS          |
+|  Action word color                            | In-play        |  Should change colour if correct button clicked           | PASS          |
+|  Game score update                            | In-play        |  Should increment by one if correct button clicked        | PASS          |
+|  Correct click sound                          | In-play        |  Should play if correct button clicked                    | PASS          |
+|  Incorrect click sound                        | In-play        |  Should play if incorrect button clicked                  | PASS          |
+|  Game over sound                              | In-play        |  Should play if time runs out                             | PASS          |
+|  High score update                            | Game end       |  Should update if new high score achieved                 | PASS          |
+|  High score sound                             | Game end       |  Should play if new high score achieved                   | PASS          |
+|  Media Query mobile screen size               | Resize screen  |  Page should display correctly on mobile screen           | PASS          |
+|  Media Query tablet screen size               | Resize screen  |  Page should display correctly on tablet screen           | PASS          |
+|  Media Query desktop screen size              | Resize screen  |  Page should display correctly on 14 inch screen          | PASS          |
+|  Media Query 5k screen size                   | Resize screen  |  Page should display correctly on 5k screen               | PASS          |
+|  Marquee text                                 | Resize screen  |  Should fit partial width of screens above mobile size    | PASS          |
+|  Marquee text                                 | Resize screen  |  Should fit entire width of mobile screen                 | PASS          |
+|  Copyright text                               | Resize screen  |  Should be visible on screens above mobile size           | PASS          |
+|  Copyright text                               | Resize screen  |  Should not be visible mobile screens                     | PASS          |
 
 **Testing User Stories**
 
