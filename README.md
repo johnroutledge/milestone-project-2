@@ -77,6 +77,8 @@ Through a minimum of visual content, I reduced distraction and maximized engagem
 
 **Skeleton**
 
+![Wireframes](https://johnroutledge.github.io/milestone-project-2/assets/images/MS2_gameplay_wireframes.png "Wireframes")
+
 The key reasoning behind the design of the game was to disclose information progressively by giving snippets of what 
 lay on other pages.  By using icons and breaking it into three main sections which mirror the three main user/business needs,
 this also minimized cognitive overload.
