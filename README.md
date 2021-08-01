@@ -79,7 +79,7 @@ Through a minimum of visual content, I also reduced distraction and maximized en
 
 **Skeleton**
 
-![Wireframes](https://johnroutledge.github.io/milestone-project-2/assets/images/MS2_gameplay_wireframes.png "Wireframes")
+![Wireframes](https://johnroutledge.github.io/milestone-project-2/assets/images/ms2_gameplay_wireframes.png "Wireframes")
 
 To make sure the game intuitive to navigate and play, I kept the controls in a central position. This is very important for 
 mobile users as it allows for one-handed gameplay and also for desktop users as it keeps mouse-movement to a single movement.
@@ -184,9 +184,10 @@ Github repo...
 **Testing with Lighthouse in Google Chrome Devtools**
 
 * Performance: 
-* Accessibility:
-* Best Practices:
-* SEO:
+* Accessibility: was 98% after first test. This was due to the contrast between the font color and 
+background on the instruction modal. Having changed the font color used on the instruction modal, it went up to 100%. ***INCLUDE SCREEN SHOTS
+* Best Practices: was 100% after first test, so no changes needed.
+* SEO: was 100% after first test, so no changed needed.
 
 **Notable bug fixes**
 
@@ -195,6 +196,8 @@ All subsequent audio files play without delay. Having tried various fixes (using
 2. Having played the game numerous times to make sure it played correctly, I noticed that when landing on circle number 0 (in the 12 o'clock position) from an anti-clockwise direction, if the next action word was 'boing' then the game flagged up wrong when clicking on the correct circle (number six). Having done a console.log to see which circle it was expecting, it turned out to be circle seven rather than circle six.  After looking at the code to see what the error could be, I discovered that I had mis-calculated when experiencing a negative number in my if...else if statement in the calculateCorrectCircle function. ***INCLUDE SCREENSHOT OF CODE
 3. The three-second countdown timer on game start was very buggy initially.  Having researched this and discussing it with my mentor, this issue was found to be synchronicity
 within the JavaScript.  The countdown timer was originally within its own function, but calling this prior to starting the main game timer resulted in both timers running concurrently which caused multiple DOM updates at the same time.  To rectify this, I took the countdown timer out of its own function and put it into a loop in the playGame function which removed any synchronicity issues and fixed the bug.  ***INCLUDE SCREENSHOT OF CODE
+4. After clicking the play button, it was discovered that it could be clicked again before becoming
+disabled and so causing further instances of the resetGame function being called. This resulted in it being possible to start multiple games at the same time. Having inspected the code, it was discovered that both the play and help buttons were being disabled within the countdown timer loop. To fix the bug, the code which disables both the play and help buttons was simply moved to the top of the resetGame function.  ***INCLUDE SCREENSHOT OF CODE
 
 ***
 
@@ -262,4 +265,5 @@ Pushing moves your work from the staging area to your repository.
 **Acknowledgements**
 
 - To my wife, Chonchanok Routledge, and sveral work colleagues for testing the game on various mobile devices.
+- To @Nat_Kate (via Slack) who discovered the play button bug.
 - To Brian Machiara, my Code Institute mentor, for giving me invaluable tips and insight throughout the whole process.

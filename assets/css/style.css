@@ -1,5 +1,5 @@
 body {
-    background: url("../images/retro-arcade.jpg") no-repeat bottom left fixed;
+    background: url("../images/arcade_background.jpg") no-repeat bottom left fixed;
     background-size: cover;
     font-family: 'Press Start 2P', cursive;
 }
@@ -43,7 +43,7 @@ body {
 
 .circle.center {
     left: 50%;
-    top: 15rem;
+    top: 10rem;
     width: 200px;
     height: 200px;
     margin-left: -100px;
@@ -132,6 +132,7 @@ body {
 /*---credit:https://codepen.io/kevinpowell/pen/QWdRzON Neon Button with CSS*/
 :root {
     --clr-neon: hsl(317 100% 54%);
+    --clr-inst: hsl(117 100% 54%);
     --clr-bg: hsl(323 21% 16%);
 }
 
@@ -159,13 +160,6 @@ body {
     width: 90px;
     margin-left: 10px;
 }
-
-/* #demo-button {
-    bottom: -150px;
-    left: 90%;
-    width: 90px;
-    margin-left: -25px;
-} */
 
 #help-button {
     bottom: -150px;
@@ -292,34 +286,35 @@ footer {
 /*----------INSTRUCTIONS MODAL*/
 
 .modal {
-    color: var(--clr-neon);
+    color: var(--clr-inst);
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
     font-size: smaller;
 }
 
-.modal-body {
+.modal-body,
+.modal-header {
     background-color: black;
     border-style:solid;
-    border-color: var(--clr-neon);
+    border-color: var(--clr-inst);
 }
 
-.modal-header {
+/* .modal-header {
     background-color: black;
     border-style: solid;
     border-color: var(--clr-neon);
-}
+}  */
 
 #modal-close {
-    color: var(--clr-neon);
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+    color: var(--clr-inst);
+    /* text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor; */
 }
 
 /*----------MEDIA QUERIES*/
 @media screen and (max-width: 700px){
-    /* body {
-        background: url("../images/mobile-background.jpg") no-repeat center fixed;
+    body {
+        background: url("../images/arcade_background_mob.jpg") no-repeat center fixed;
         background-size: cover;
-     } */
+     }
 
     #marquee-text {
         margin-left: 0 ;

@@ -6,6 +6,8 @@
  let nextCircle;
  
 function resetGame() {
+    document.getElementById('help-button').classList.add('disabled');
+    document.getElementById('play-button').classList.add('disabled');
     document.getElementById('score').innerHTML = 'Score:00';
     document.getElementById('action').innerHTML = 'Ready?';
     clickedCircle = 0;
@@ -17,14 +19,11 @@ function resetGame() {
 
     let timeleft = 4;
     let downloadTimer = setInterval(function(){
-         if(timeleft <= 0){
+        if(timeleft <= 0){
             clearInterval(downloadTimer);
             document.getElementById('action').innerHTML = 'Go!';
             startClock();
-            document.getElementById('help-button').classList.add('disabled');
-            document.getElementById('play-button').classList.add('disabled');
-            // document.getElementById('demo-button').classList.add('disabled');
-            disableCircles(true);
+             disableCircles(true);
             
             //this is a bugfix for audio delay when clicking during game play - see README for more
             playAudio('silence');
@@ -34,18 +33,8 @@ function resetGame() {
         } else {
             document.getElementById('action').innerHTML = (timeleft - 1);
         }
-
-
-         timeleft -= 1;
+        timeleft -= 1;
     }, 1000);
-
-    // startClock();
-    // document.getElementById('play-button').classList.add('disabled');
-    // disableCircles(true);
-    
-    // //this is a bugfix for audio delay when clicking during game play - see README for more
-    // playAudio('silence');
-    // playGame();
 }
 
 function playGame() {
@@ -55,6 +44,7 @@ function playGame() {
     selectAction();
     calculateCorrectCircle();
 
+    //gets the circle player just clicked
     var circles = document.getElementsByClassName('outer');
     var circlesCount = circles.length;
     
@@ -106,20 +96,6 @@ function countdown() {
 
     tick();
 }
-
-//gets the circle player just clicked - currently sitting in playGame function
-// function getClickedCircle () {
-//     var circles = document.getElementsByClassName('outer');
-//     var circlesCount = circles.length;
-    
-//     for (let i=0; i < circlesCount; i++) {
-//         circles[i].onclick = function () {
-//             clickedCircle = (i + 1);
-//             console.log('hey');
-//             highlightCurrentCircle();
-//         }
-//     }
-// }
 
 //highlights the current circle so player knows where they are
 function highlightCurrentCircle() {
@@ -285,45 +261,6 @@ function loadInstructionsModal() {
 
 function hideModal() {
     $('#instructionsModal').modal('hide'); 
-}
-
-//performs a demonstration of game play
-function demoMode() {
-    clickedCircle = 0;
-    direction = true;
-    currentCircle = 1;
-    document.getElementById('score').innerHTML = 'Demo mode';
-    resetCircles();
-    
-    for (let i=0; i < 8; i++) {        
-        selectAction();
-        calculateCorrectCircle();
-        console.log('before');
-        wait(1000);  //1 seconds in milliseconds
-        console.log('after');
-        // highlightCorrectCircle();
-        console.log('before');
-        wait(1000);  //1 seconds in milliseconds
-        console.log('after');
-    }
-}
-
-function highlightCorrectCircle() {
-    var circles = document.getElementsByClassName('outer');
-    var circlesCount = circles.length;
-    
-    for (let i=0; i < circlesCount; i++) {
-        if (i === nextCircle) {
-            document.getElementById(i).classList.add('highlighted');
-        } else {
-            document.getElementById(i).classList.remove('highlighted');
-        }
-    }
-}
-
-function pauseDemo() {
-    console.log('Hello');
-    setTimeout(() => {  console.log('World!'); }, 2000);
 }
 
 function wait(ms){
