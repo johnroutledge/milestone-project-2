@@ -9,23 +9,24 @@
 
 **Rationale**
 
-With the ubiquity of mobile devices and tablets presently, there is an ever increasing demand for games that require very little time investment.
+With the ever increasing ubiquity of mobile devices and tablets, there is a huge demand for games that require very little time investment.
 Users want a game that is easy to understand, quick to play and gives instant gratification.
 
 This website meets such needs through an adaptation of a classic drinking game which I renamed 'Pop, Bang, Boing'. This change came about when in 
-a classroom scenario and the three action words had to be child-friendly. In the original version, people who be sat in a circle and take it in turns
-to say either 'pop', 'bang' or 'boing' which, in turn, would determine who was next to speak.  Players who were to slwo to respond, or who spoke out 
+a classroom scenario and the three action words had to be more student-friendly. In the original version, people sat in a circle and take it in turns
+to say either 'pop', 'bang' or 'boing' which, in turn, would determine who was next to speak.  Players who were too slow to respond, or who spoke out 
 of turn, would be eliminated from the game (and would have to perform a forfeit of some kind).  
 
 I thought it would be a fun idea to bring this game to electronic devices in order to provide users with some light relief and entertainment.  In my version,
-rather than people being elimnated from the game, the aim is to click on the correct circle as many times as possible in one minute.  The action word 
-being chosen at random by the program.
+rather than people being eliminated from the game, the aim is to click on the correct circle as many times as possible in thirty seconds.  The action word 
+is chosen at random by the program.
 
 The typical user for the website would be someone:
 * Looking for some quick, light-hearted entertainment
-* Who likes classic-style games
-* Who is trying to improve their hand-eye co-ordination
+* Who likes retro-style games
+* Who is trying to improve their hand-eye coordination
 * Who wants to speed up their reactions
+* Who doesn't have too much time to invest in a game
 
 People visiting this website are looking for:
 * Entertainment
@@ -116,7 +117,6 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 * JQuery
 * Github/Gitpod
 * BootstrapCDN (Bootstrap 4)
-* Font Awesome
 * Google Fonts
 * Google Dev Tools 
 * Google Lighthouse
@@ -130,17 +130,27 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 |  Initial page load                            | Page load      |  Instrucion modal should appear on top                    | PASS          |
 |  Instruction modal close button               | Click          |  Instruction modal should close when clicked              | PASS          |
 |  Marquee text                                 | Page load      |  Should scroll consistently at all times                  | PASS          |
+|  Help button                                  | Pre-play       |  Should be enabled and highlighted on focus               | PASS          |
+|  Play button                                  | Pre-play       |  Should be enabled and highlighted on focus               | PASS          |
 |  Help button                                  | Click          |  Instrucion modal should appear on top                    | PASS          |
 |  Play button                                  | Click          |  Countdown should trigger followed by game start          | PASS          |
+|  Eight circle buttons                         | Pre-play       |  Should be disabled pre-play                              | PASS          |
+|  Help button                                  | In-play        |  Should be disabled in-play                               | PASS          |
+|  Play button                                  | In-play        |  Should be disabled in-play                               | PASS          |
+|  Eight circle buttons                         | In-play        |  Should be enabled and highlighted on focus               | PASS          |
+|  Countdown timer                              | In-play        |  Should perform a three-second countdown then 'Ready?'    | PASS          |
 |  Gameplay timer                               | In-play        |  Should run for 30 seconds unless incorrect button click  | PASS          |
 |  Action word                                  | In-play        |  Should change to new action if correct button clicked    | PASS          |
 |  Action word color                            | In-play        |  Should change colour if correct button clicked           | PASS          |
 |  Game score update                            | In-play        |  Should increment by one if correct button clicked        | PASS          |
-|  Correct click sound                          | In-play        |  Should play if correct button clicked                    | PASS          |
-|  Incorrect click sound                        | In-play        |  Should play if incorrect button clicked                  | PASS          |
-|  Game over sound                              | In-play        |  Should play if time runs out                             | PASS          |
+|  Correct click sound                          | In-play        |  Should be audible if correct button clicked              | PASS          |
+|  Incorrect click sound                        | In-play        |  Should be audible if incorrect button clicked            | PASS          |
+|  Game over sound                              | In-play        |  Should be audible if time runs out                       | PASS          |
 |  High score update                            | Game end       |  Should update if new high score achieved                 | PASS          |
-|  High score sound                             | Game end       |  Should play if new high score achieved                   | PASS          |
+|  High score sound                             | Game end       |  Should be audible if new high score achieved             | PASS          |
+|  Countdown timer                              | Game end       |  Should reset to zero                                     | PASS          |
+|  Action word                                  | Game end       |  Should display 'Game over' or 'New High'                 | PASS          |
+|  Game score                                   | Game end       |  Should reset to zero                                     | PASS          |
 |  Media Query mobile screen size               | Resize screen  |  Page should display correctly on mobile screen           | PASS          |
 |  Media Query tablet screen size               | Resize screen  |  Page should display correctly on tablet screen           | PASS          |
 |  Media Query desktop screen size              | Resize screen  |  Page should display correctly on 14 inch screen          | PASS          |
@@ -153,13 +163,13 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 **Testing User Stories**
 
 1. As someone who only has a few minutes to spare, I want a game that can be picked up and put down without any commitment.
-* Yes, they...
+* Yes, the game requires mimimal time investment (30 seconds per game) with no need to revisit the game in terms of saving progress.
 2. As someone short on time, I need a game which is intuitive to play.
-* Yes, by ...
+* Yes, by showing the instructions on page load and having responsive gameplay feedback (both visual and audible), the game is very intuitive.
 3. As a person who enjoys a challenge, I want a game to test my reflexes.
-* Yes, the ...
+* Yes, due to the time constraints of the game as well as including a high score, the game requires focus, concentration and quick reflexes.
 4. As someone who enjoys classic arcade games, I want a game that appeals to me in a retro-way.
-* Yes, by ...
+* Yes, this is achieved by the use of a retro-style font and audio clips, a neon color scheme and a classic arcade background.  
 
 
 **Testing Browser Compatibility**
@@ -181,8 +191,10 @@ Github repo...
 **Notable bug fixes**
 
 1. When the first play() function is called, there is a noticable delay before the audio file is played. 
-All subsequent audio files play without delay. Having tried various fixes (using MP3 files instead of WAV) without success, I decided to just play an empty sound before the start of the game. This fixed the problem as now the sounds are immediate when clicking circles during gameplay.
-2. Having played the game numerous times to make sure it played correctly, I noticed that when landing on circle number 1 (in the 12 o'clock position) in an anti-clockwise direction, if the next action word was 'boing' then the game flagged up wrong when clicking on the correct circle (number seven). Having done a console.log to see which circle it was expecting, it turned out to be circle eight rather than circle seven.  After looking at the code to see what the error could be, I discovered that I had mis-calculated when experiencing a negative number in my if...else if statement in the calculateCorrectCircle function.
+All subsequent audio files play without delay. Having tried various fixes (using MP3 files instead of WAV) without success, I decided to just play an empty sound before the start of the game. This fixed the problem as now the sounds are immediate when clicking circles during gameplay. ***INCLUDE SCREENSHOT OF CODE
+2. Having played the game numerous times to make sure it played correctly, I noticed that when landing on circle number 0 (in the 12 o'clock position) from an anti-clockwise direction, if the next action word was 'boing' then the game flagged up wrong when clicking on the correct circle (number six). Having done a console.log to see which circle it was expecting, it turned out to be circle seven rather than circle six.  After looking at the code to see what the error could be, I discovered that I had mis-calculated when experiencing a negative number in my if...else if statement in the calculateCorrectCircle function. ***INCLUDE SCREENSHOT OF CODE
+3. The three-second countdown timer on game start was very buggy initially.  Having researched this and discussing it with my mentor, this issue was found to be synchronicity
+within the JavaScript.  The countdown timer was originally within its own function, but calling this prior to starting the main game timer resulted in both timers running concurrently which caused multiple DOM updates at the same time.  To rectify this, I took the countdown timer out of its own function and put it into a loop in the playGame function which removed any synchronicity issues and fixed the bug.  ***INCLUDE SCREENSHOT OF CODE
 
 ***
 
@@ -232,17 +244,22 @@ Pushing moves your work from the staging area to your repository.
 
 **Content**
 
-- 
+- The unknown person who created the drinking game from which Pop Bang Boing was derived.
+- All gameplay code (with the exception of the countdown and timer) was created by myself.
 
 **Media**
 
-- 
+- The background arcade image was taken from INCLUDE CREDIT
+- Sound effect were taken from INCLUDE CREDIT
 
 **Code**
 
-- 
+- The neon color scheme and effect was taken from INCLUDE CREDIT
+- To position the circles in a circular fashion, I gained help from INCLUDE CREDIT
+- The countdown and game timers used code adapted from INCLUDE CREDIT
+- Matt Rudge at Code Institute for the basics behind the 'Register Modal' in the 'Whiskey Drop' mini-project which was adapted for my 'Instruction Modal'.
 
 **Acknowledgements**
 
+- To my wife, Chonchanok Routledge, and sveral work colleagues for testing the game on various mobile devices.
 - To Brian Machiara, my Code Institute mentor, for giving me invaluable tips and insight throughout the whole process.
-- 
