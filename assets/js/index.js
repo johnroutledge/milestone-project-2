@@ -4,7 +4,13 @@
  let direction;
  let clickedCircle;
  let nextCircle;
- 
+
+/**
+ * Resets elements in preparation for start of game, disables help and play
+ * buttons so they can't be clicked in-play, sets start circle back to top,
+ * sets direction to clockwise (true), sets current score to zero, initiates
+ * three-second countdown timer to prepare player for start of game.
+ */
 function resetGame() {
     document.getElementById('help-button').classList.add('disabled');
     document.getElementById('play-button').classList.add('disabled');
@@ -15,17 +21,17 @@ function resetGame() {
     endGame.called = false;
     currentCircle = 0;
     currentScore = 0;
-    // countdown();
 
+    //loops four times - three second countdown plus 'Go!' message
     let timeleft = 4;
     let downloadTimer = setInterval(function(){
         if(timeleft <= 0){
             clearInterval(downloadTimer);
             document.getElementById('action').innerHTML = 'Go!';
             startClock();
-             disableCircles(true);
+            disableCircles(true);
             
-            //this is a bugfix for audio delay when clicking during game play - see README for more
+            //bugfix for audio delay when clicking during game play - see README for details
             playAudio('silence');
             playGame();
         } else if (timeleft === 1) {
@@ -37,14 +43,13 @@ function resetGame() {
     }, 1000);
 }
 
+//starts the interactive gameplay which lasts for a maximum of thirty seconds
 function playGame() {
-    // endGame.called = false;
-    // startClock();
     disableCircles(false);
     selectAction();
     calculateCorrectCircle();
 
-    //gets the circle player just clicked
+    //establishes which circle the player just clicked
     var circles = document.getElementsByClassName('outer');
     var circlesCount = circles.length;
     
@@ -57,9 +62,9 @@ function playGame() {
     }
 }
 
- //credit: Stack Overflow - How to set one minute counter in javascript
+//starts 30 second countdown - credit: Stack Overflow - How to set one minute counter in javascript
 function startClock() {
-    var seconds = 20;
+    var seconds = 30;
     function tick() {
         var clock = document.getElementById('clock');
         seconds--;
@@ -76,24 +81,6 @@ function startClock() {
             endGame();
         }
     }
-
-    tick();
-}
-
-function countdown() {
-    var seconds = 4;
-    function tick() {
-        var countdown = document.getElementById('action');
-        seconds--;
-        countdown.innerHTML = String(seconds);
-
-        if( seconds > 0 ) {
-            setTimeout(tick, 1000);
-        } else {
-            countdown.innerHTML = 'Go!';
-        }
-    }
-
     tick();
 }
 
@@ -117,6 +104,7 @@ function highlightCurrentCircle() {
 function calculateCorrectCircle() {
     var step;
     var currentAction = document.getElementById('action').innerHTML;
+    
     if (currentAction === 'Pop') {
         step = 1;
     } else if (currentAction === 'Bang') {
@@ -124,7 +112,6 @@ function calculateCorrectCircle() {
     } else if (currentAction === 'Boing') {
         step = 2;
     }
-    
 
     if (direction) { 
         nextCircle = currentCircle + step;
@@ -138,12 +125,10 @@ function calculateCorrectCircle() {
         nextCircle = 1;
     } else if (nextCircle === -2) {
         nextCircle = 6;
-    // } else if (nextCircle === -2) {
-    //     nextCircle = 7;
     } else if (nextCircle === -1) {
         nextCircle = 7;
     }
-    console.log(nextCircle);
+
     switch(currentAction) {
         case 'Pop':
         direction = direction;
@@ -159,22 +144,20 @@ function calculateCorrectCircle() {
     currentCircle = nextCircle;
 }
 
+//checks whether player has clicked on the correct circle
 function checkAnswer() {
     if (clickedCircle === nextCircle) {
         updateScore();
         playGame();
     } else {
         document.getElementById('action').innerHTML = 'Oops!';
-        console.log(document.getElementById('action').innerHTML);
         playAudio('wrong');
-        console.log('before');
-        wait(1000);  //1 seconds in milliseconds
-        console.log('after');
+        wait(1000);  //1 second in milliseconds
         endGame();
     }
 }
 
-// select random action from actionWord array 
+//selects random action word from actionWord array 
 function selectAction() {
     let actionText = document.getElementById('action');
     var action = actionWord[Math.floor(Math.random() * actionWord.length)];
@@ -183,7 +166,7 @@ function selectAction() {
     actionText.style.color = 'hsl(' + randomColor + ',100%,54%)';
 }
 
-//enter score update code here
+//increments current game by one score if correct circle clicked
 function updateScore() {
     var score = document.getElementById('score');
 
@@ -191,22 +174,25 @@ function updateScore() {
     score.innerHTML = 'Score:' + (currentScore < 10 ? '0' : '') + String(currentScore);
 }
 
-//enter end of game code here
+/**
+ * Resets elements at end of game, notifies player of end of game, 
+ * disables all circle buttons, enables play and help buttons, 
+ * resets action word color and game score to zero.
+ */
 function endGame() {
     endGame.called = true;
     disableCircles(true);
     let actionText = document.getElementById('action');
     actionText.innerHTML = 'Game Over';
-    actionText.style.color = 'hsl(317,100%,54%)';
+    actionText.style.color = 'var(--clr-neon)';
     document.getElementById('help-button').classList.remove('disabled');
     document.getElementById('play-button').classList.remove('disabled');
-    // document.getElementById('demo-button').classList.remove('disabled');
     document.getElementById('clock').innerHTML = '00';
     resetCircles();
     updateHighScore();
 }
 
-//play selected sound
+//plays selected sound by passing the parameter of soundName which corresponds to audio file 
 function playAudio(soundName) {
     let sound = document.getElementById('audio');
     let src = 'assets/audio/' + soundName + '.wav'; 
@@ -214,7 +200,7 @@ function playAudio(soundName) {
     sound.play();
 }
 
-//clears all circles and highlights the top one
+//clears all circles and highlights the top one ready for new game
 function resetCircles() {
     var circles = document.getElementsByClassName('outer');
     var circlesCount = circles.length;
@@ -228,6 +214,7 @@ function resetCircles() {
      } 
 }
 
+//disables or enables circle buttons depending on value of onOff parameter
 function disableCircles(onOff) {
     var circles = document.getElementsByClassName('outer');
     var circlesCount = circles.length;
@@ -241,11 +228,11 @@ function disableCircles(onOff) {
      } 
 }
 
+//updates the high score if current game score exceeds current high score
 function updateHighScore() {
     highScore = document.getElementById('high-score').innerHTML.slice(-2);
     
     if (currentScore > highScore) {
-        //add code to have pop-up high score notification
         if (currentScore < 10) {
             currentScore = '0' + String(currentScore);
         }
@@ -263,6 +250,7 @@ function hideModal() {
     $('#instructionsModal').modal('hide'); 
 }
 
+//delays gameplay by duration passed to it in ms parameter 
 function wait(ms){
     var start = new Date().getTime();
     var end = start;

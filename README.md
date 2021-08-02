@@ -183,9 +183,13 @@ Github repo...
 
 **Testing with Lighthouse in Google Chrome Devtools**
 
-* Performance: 
+![Lighthouse](https://johnroutledge.github.io/milestone-project-2/assets/images/lighthouse_results_desktop.png "Lighthouse")
+
+* Performance: this was initially 91% which was acceptable. However, to improve load speed further, the 
+background image was saved at a reduced resolution as it doesn't detract from the gameplay UX. Having 
+done this, performance was increased to 95% (see Lighthouse screenshot above).
 * Accessibility: was 98% after first test. This was due to the contrast between the font color and 
-background on the instruction modal. Having changed the font color used on the instruction modal, it went up to 100%. ***INCLUDE SCREEN SHOTS
+background on the instruction modal. Having changed the font color used on the instruction modal from a neon pink to a neon green, it went up to 100% (see Lighthouse screenshot above).
 * Best Practices: was 100% after first test, so no changes needed.
 * SEO: was 100% after first test, so no changed needed.
 
@@ -252,18 +256,19 @@ Pushing moves your work from the staging area to your repository.
 
 **Media**
 
-- The background arcade image was taken from INCLUDE CREDIT
-- Sound effect were taken from INCLUDE CREDIT
+- The background arcade image was taken from www.wallpaper-mania.com
+- Sound effects were taken from www.freesound.org
 
 **Code**
 
-- The neon color scheme and effect was taken from INCLUDE CREDIT
-- To position the circles in a circular fashion, I gained help from INCLUDE CREDIT
-- The countdown and game timers used code adapted from INCLUDE CREDIT
+- The neon color scheme and effect was adapted from Kevin Powell's YouTube channel.
+- To position the circles in a circular fashion, I gained help www.stackoverflow.com
+- The countdown and game timers used code adapted from 'How to set one minute counter in JavaScript' 
+found on www.stackoverflow.com
 - Matt Rudge at Code Institute for the basics behind the 'Register Modal' in the 'Whiskey Drop' mini-project which was adapted for my 'Instruction Modal'.
 
 **Acknowledgements**
 
-- To my wife, Chonchanok Routledge, and sveral work colleagues for testing the game on various mobile devices.
+- To my wife, Chonchanok Routledge, and several work colleagues for testing the game on various mobile devices.
 - To @Nat_Kate (via Slack) who discovered the play button bug.
 - To Brian Machiara, my Code Institute mentor, for giving me invaluable tips and insight throughout the whole process.
