@@ -1,8 +1,8 @@
 # Pop Bang Boing
 **Interactive Frontend Development Milestone Project**
 
-![Main Mockup](https://johnroutledge.github.io/milestone-project-2/assets/images/mockup.jpg "Main Mockup")
-
+![Main Mockup](https://johnroutledge.github.io/milestone-project-2/assets/images/main_mockup.jpg "Main Mockup")
+ 
 [Link to Live Website](https://johnroutledge.github.io/milestone-project-2/index.html)
 
 [GitHub Repo](https://github.com/johnroutledge/milestone-project-2)
@@ -56,7 +56,7 @@ Pop Bang Boing is the ideal site for such people because:
 
 **Strategy**
 
-User needs:  quick entertainment and gratification, a reaction challenge, intuitive gameplay, visual appeal
+User needs:  quick entertainment and gratification, a reaction challenge, intuitive gameplay, visual appeal.
 
 Being a big mobile gamer myself who only has a few minutes to spend playing a game, I decided that the game should fulfil the following needs: be visually pleasing, provide quick feedback and gratification, be extremely quick to pick up.
 
@@ -171,6 +171,13 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 4. As someone who enjoys classic arcade games, I want a game that appeals to me in a retro-way.
 * Yes, this is achieved by the use of a retro-style font and audio clips, a neon color scheme and a classic arcade background.  
 
+**Testing Responsiveness**
+
+![Responsiveness](https://johnroutledge.github.io/milestone-project-2/assets/images/responsiveness_screenshots.png "Responsiveness")
+
+The website was tested on various screen sizes using Chrome DevTools, from iPhone5 up to 5k screen. The image above shows the website on iPhone 5, iPad and laptop screens. On a 5k screen resolution (see image below), the gameplay area remained the same size as on a laptop (and didn't scale up) to retain ease of gameplay when using a mouse.
+
+![5k](https://johnroutledge.github.io/milestone-project-2/assets/images/5k_responsiveness.png "5k")
 
 **Testing Browser Compatibility**
 
@@ -178,18 +185,25 @@ The website was successfully opened and rendered correctly in Chrome (both deskt
 
 **Code Validation**
 
-Both the HTML and CSS were validated using the W3C Markup Validation Service. This was initially done using the 'Validate by URI' option and pasting the link to the
-Github repo...
+![Marquee](https://johnroutledge.github.io/milestone-project-2/assets/images/marquee_error.png "Marquee")
+
+Both the HTML and CSS were validated using the W3C Markup Validation Service. This was done using the 'Validate by Direct Input' option. For the HTML, this resulted in an error with the marquee element (see screenshot above). This was rectified by recreating the effect using CSS (code credit listed in credits at the end of this readme file).  Final checks were done resulting in no errors as per screenshot below.
+
+![HTML](https://johnroutledge.github.io/milestone-project-2/assets/images/html_check.png "HTML")
+
+All checks on the CSS file were clear on the first attempt as per screenshot below.
+
+![CSS](https://johnroutledge.github.io/milestone-project-2/assets/images/css_check.png "CSS")
 
 **Testing with Lighthouse in Google Chrome Devtools**
 
 ![Lighthouse](https://johnroutledge.github.io/milestone-project-2/assets/images/lighthouse_results_desktop.png "Lighthouse")
 
-* Performance: this was initially 91% which was acceptable. However, to improve load speed further, the 
+* Performance: this was initially 91% which was acceptable (see upper Lighthouse results in image above). However, to improve load speed further, the 
 background image was saved at a reduced resolution as it doesn't detract from the gameplay UX. Having 
-done this, performance was increased to 95% (see Lighthouse screenshot above).
-* Accessibility: was 98% after first test. This was due to the contrast between the font color and 
-background on the instruction modal. Having changed the font color used on the instruction modal from a neon pink to a neon green, it went up to 100% (see Lighthouse screenshot above).
+done this, performance was increased to 95% (see lower Lighthouse results in image above).
+* Accessibility: was 98% after first test (see upper Lighthouse results in image above). This was due to the contrast between the font color and 
+background on the instruction modal. Having changed the font color used on the instruction modal from a neon pink to a neon green, it went up to 100% (see lower Lighthouse results in image above).
 * Best Practices: was 100% after first test, so no changes needed.
 * SEO: was 100% after first test, so no changed needed.
 

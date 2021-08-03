@@ -10,19 +10,18 @@ body {
     margin-right: auto;
     padding: 0;
     position: relative;
-    /* height: 90vh; */
 }
 
-#marquee-text {
+/* #marquee-text {
     font-size: larger;
     width: 40%;
     margin-left: 30%;
     color: var(--clr-neon);
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-}
+} */
 
-/*-----Credit: http://jsfiddle.net/e8ws12pt/*/
-/* .marquee {
+/*-----SCROLLING TEXT - Credit: http://jsfiddle.net/e8ws12pt/*/
+.marquee {
     font-size: larger;
     width: 40%;
     margin-left: 30%;
@@ -38,17 +37,18 @@ body {
     display: inline-block;
     text-indent: 0;
     overflow: hidden;
-    -webkit-transition: 15s;
-    transition: 15s;
-    -webkit-animation: marquee 15s linear infinite;
-    animation: marquee 15s linear infinite;
+    -webkit-transition: 20s;
+    transition: 20s;
+    -webkit-animation: marquee 20s linear infinite;
+    animation: marquee 20s linear infinite;
 }
 
 @keyframes marquee {
     0% { transform: translate(100%, 0); -webkit-transform: translateX(100%); }
     100% { transform: translate(-100%, 0); -webkit-transform: translateX(-100%); }
-} */
+}
 
+/*----------GAMEPLAY AREA STYLING*/
 #gameplay {
     height: 90%;
     margin: 0;
@@ -71,7 +71,7 @@ body {
 
 .circle.center {
     left: 50%;
-    top: 10rem;
+    top: 25vh;
     width: 200px;
     height: 200px;
     margin-left: -100px;
@@ -118,6 +118,7 @@ body {
     top: -20px;
 }
 
+/*----------CENTRAL NOTIFICATION AREA*/
 #clock {
     font-size: 2rem;
     position: absolute;
@@ -157,7 +158,7 @@ body {
     opacity: 1;
 }
 
-/*---credit:https://codepen.io/kevinpowell/pen/QWdRzON Neon Button with CSS*/
+/*---NEON BUTTON EFFECT - credit:https://codepen.io/kevinpowell/pen/QWdRzON*/
 :root {
     --clr-neon: hsl(317 100% 54%);
     --clr-inst: hsl(117 100% 54%);
@@ -169,7 +170,6 @@ body {
     text-decoration: none;
     color: var(--clr-neon);
     border: var(--clr-neon) 0.125em solid;
-    /* padding: 0.25em 1em; */
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
     box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
 }
@@ -201,12 +201,7 @@ body {
     content: "";
     position: absolute;
     background: var(--clr-neon);
-    /* top: 120%;
-    left: 0;
-    width: 100%;
-    height: 100%; */
     border-radius: 100%;
-    /* transform: perspective(1em) rotateX(40deg) scale(1, 0.35); */
     filter: blur(1em);
     opacity: 0.7;
   }
@@ -283,7 +278,6 @@ body {
   }
 
 /*----------FOOTER*/
-
 footer {
     text-align: center;
     height: 50px;
@@ -312,7 +306,6 @@ footer {
 }
 
 /*----------INSTRUCTIONS MODAL*/
-
 .modal {
     color: var(--clr-inst);
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
@@ -326,15 +319,8 @@ footer {
     border-color: var(--clr-inst);
 }
 
-/* .modal-header {
-    background-color: black;
-    border-style: solid;
-    border-color: var(--clr-neon);
-}  */
-
 #modal-close {
     color: var(--clr-inst);
-    /* text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor; */
 }
 
 /*----------MEDIA QUERIES*/
@@ -344,14 +330,19 @@ footer {
         background-size: cover;
      }
 
-    #marquee-text {
-    /* .marquee { */
+    /* #marquee-text { */
+    .marquee {
         margin-left: 0 ;
         left: 0;
         width: 100%;
     }
+}
 
-    .circle.center {
-        top: 10rem;
+@media screen and (max-width: 1000px){
+    /* #marquee-text { */
+    .marquee {
+        margin-left: 0 ;
+        left: 0;
+        width: 100%;
     }
 }

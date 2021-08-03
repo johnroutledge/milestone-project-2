@@ -1,7 +1,7 @@
  let currentScore = 0;
  let highScore = 0;
  let actionWord = ['Pop','Bang','Boing'];
- let direction;
+ let direction; //true being clockwise and false being anticlockwise
  let clickedCircle;
  let nextCircle;
 
@@ -24,9 +24,9 @@ function resetGame() {
 
     //loops four times - three second countdown plus 'Go!' message
     let timeleft = 4;
-    let downloadTimer = setInterval(function(){
+    let countdownTimer = setInterval(function(){
         if(timeleft <= 0){
-            clearInterval(downloadTimer);
+            clearInterval(countdownTimer);
             document.getElementById('action').innerHTML = 'Go!';
             startClock();
             disableCircles(true);
@@ -246,11 +246,11 @@ function loadInstructionsModal() {
     $('#instructionsModal').modal('show');
 }
 
-function hideModal() {
+function hideInstructionsModal() {
     $('#instructionsModal').modal('hide'); 
 }
 
-//delays gameplay by duration passed to it in ms parameter 
+//delays gameplay by duration passed to it as ms parameter 
 function wait(ms){
     var start = new Date().getTime();
     var end = start;
