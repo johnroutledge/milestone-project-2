@@ -1,7 +1,7 @@
 # Pop Bang Boing
 **Interactive Frontend Development Milestone Project**
 
-![Main Mockup](https://johnroutledge.github.io/milestone-project-2/assets/images/main_mockup.jpg "Main Mockup")
+![Main Mockup](https://johnroutledge.github.io/milestone-project-2/assets/images/main_mockup.png "Main Mockup")
  
 [Link to Live Website](https://johnroutledge.github.io/milestone-project-2/index.html)
 
