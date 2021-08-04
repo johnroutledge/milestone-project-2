@@ -204,7 +204,7 @@ body {
     border-radius: 100%;
     filter: blur(1em);
     opacity: 0.7;
-  }
+}
 
 .neon-circle::after {
     content: "";
@@ -221,7 +221,7 @@ body {
     background-color: var(--clr-neon);
     z-index: -1;
     transition: opacity 100ms linear;
-  }
+}
 
 .neon-button::before {
     pointer-events: none;
@@ -235,7 +235,7 @@ body {
     transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
     filter: blur(1em);
     opacity: 0.7;
-  }
+}
 
 .neon-button::after {
     content: "";
@@ -249,33 +249,33 @@ body {
     background-color: var(--clr-neon);
     z-index: -1;
     transition: opacity 100ms linear;
-  }
+}
 
-  .neon-circle:hover,
-  .neon-circle:focus,
-  .neon-button:hover,
-  .neon-button:focus {
+.neon-circle:hover,
+.neon-circle:focus,
+.neon-button:hover,
+.neon-button:focus {
     color: var(--clr-bg);
     text-shadow: none;
-  }
+}
 
-  .neon-circle:hover::before,
-  .neon-circle:focus::before,
-  .neon-button:hover::before,
-  .neon-button:focus::before {
+.neon-circle:hover::before,
+.neon-circle:focus::before,
+.neon-button:hover::before,
+.neon-button:focus::before {
     opacity: 1;
-  }
+}
 
-  .neon-circle:hover::after,
-  .neon-circle:focus::after,
-  .neon-button:hover::after,
-  .neon-button:focus::after {
+.neon-circle:hover::after,
+.neon-circle:focus::after,
+.neon-button:hover::after,
+.neon-button:focus::after {
     opacity: 1;
-  }
+}
 
-  .disabled {
-      pointer-events: none;
-  }
+.disabled {
+    pointer-events: none;
+}
 
 /*----------FOOTER*/
 footer {

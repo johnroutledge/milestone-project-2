@@ -6,10 +6,7 @@
     <meta name="description" content="Milestone Project 2 - PopBangBoing">
     <meta name="keywords" content="Interactive Game">
     <meta name="author" content="John Routledge">
-    <!-- <script type="text/javascript" src="libraries/jquery.js"></script>
-    <script type="text/javascript" src="libraries/bootstrap.bundle.min.js"></script> -->
-    <script src="libraries/jquery.js"></script>
-    <script src="libraries/bootstrap.bundle.min.js"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -39,11 +36,11 @@
                 <div class="circle neon neon-circle outer five" id="5"></div>
                 <div class="circle neon neon-circle outer six" id="6"></div>
                 <div class="circle neon neon-circle outer seven" id="7"></div>
-                <div class="neon-button" id="play-button" onClick="resetGame()">Play</div>
+                <div class="neon-button disabled" id="play-button" onClick="resetGame()">Play</div>
                 <div class="neon-button" id="help-button" onClick="loadInstructionsModal()">Help</div>
             </div>
         </div>
-        <audio id="audio"></audio>
+        <!-- <audio id="audio"></audio> -->
     </div>
     
     <!--FOOTER-->
@@ -80,7 +77,8 @@
         </div>
     </div>
     
-    <!-- <script type="text/javascript" src="assets/js/index.js"></script> -->
+    <script src="libraries/jquery.js"></script>
+    <script src="libraries/bootstrap.bundle.min.js"></script>
     <script src="assets/js/index.js"></script>
 </body>
 </html>

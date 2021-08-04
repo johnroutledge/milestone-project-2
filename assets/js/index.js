@@ -77,8 +77,13 @@ function startClock() {
         if( seconds > 0 ) {
             setTimeout(tick, 1000);
         } else {
-            playAudio('times_up');
-            endGame();
+            if (endGame.called === true) { //prevents 'times_up' audio and 'wrong' audio being called together
+                endGame();
+            } else {
+                playAudio('times_up');
+                console.log('audio TIMES UP');
+                endGame();
+            }
         }
     }
     tick();
@@ -89,7 +94,7 @@ function highlightCurrentCircle() {
     var circles = document.getElementsByClassName('outer');
     var circlesCount = circles.length;
     
-    playAudio('click');
+    // playAudio('click');
 
     for (let i=0; i < circlesCount; i++) {
         if (i === clickedCircle) {
@@ -147,12 +152,14 @@ function calculateCorrectCircle() {
 //checks whether player has clicked on the correct circle
 function checkAnswer() {
     if (clickedCircle === nextCircle) {
+        playAudio('click');
         updateScore();
         playGame();
     } else {
         document.getElementById('action').innerHTML = 'Oops!';
         playAudio('wrong');
-        wait(1000);  //1 second in milliseconds
+        console.log('audio WRONG');
+        // wait(1000);  //1 second in milliseconds
         endGame();
     }
 }
@@ -194,7 +201,8 @@ function endGame() {
 
 //plays selected sound by passing the parameter of soundName which corresponds to audio file 
 function playAudio(soundName) {
-    let sound = document.getElementById('audio');
+    let sound = new Audio();
+    // let sound = document.getElementById('audio');
     let src = 'assets/audio/' + soundName + '.wav'; 
     sound.src = src;
     sound.play();
@@ -238,6 +246,7 @@ function updateHighScore() {
         }
         document.getElementById('high-score').innerHTML = 'High:' + currentScore;
         playAudio('highscore');
+        console.log('audio HIGHSCORE');
         document.getElementById('action').innerHTML = 'New High!';
     }
 }
@@ -247,7 +256,8 @@ function loadInstructionsModal() {
 }
 
 function hideInstructionsModal() {
-    $('#instructionsModal').modal('hide'); 
+    $('#instructionsModal').modal('hide');
+    document.getElementById('play-button').classList.remove('disabled'); 
 }
 
 //delays gameplay by duration passed to it as ms parameter 
