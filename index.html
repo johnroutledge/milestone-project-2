@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Milestone Project 2 - PopBangBoing">
-    <meta name="keywords" content="Interactive Game">
+    <meta name="description" content="Pop Bang Boing - a fun interactive game">
+    <meta name="keywords" content="gnteractive Game, Pop, Bang, Boing, reflex test">
     <meta name="author" content="John Routledge">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -14,9 +13,9 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <title>PopBangBoing | Home</title>
 </head>
-<body onload="loadInstructionsModal()">
 
 <!-- <body> -->
+<body onload="loadInstructionsModal()">
     <!--MAIN CONTENT-->
     <div class="container">
         <div class="marquee">
@@ -28,19 +27,18 @@
                 <div id="high-score">High:00</div>
                 <div id="score">Score:00</div>
                 <div id="action">Ready?</div>
-                <div class="circle neon neon-circle outer highlighted zero" id="0"></div>
-                <div class="circle neon neon-circle outer one" id="1"></div>
-                <div class="circle neon neon-circle outer two" id="2"></div>
-                <div class="circle neon neon-circle outer three" id="3"></div>
-                <div class="circle neon neon-circle outer four" id="4"></div>
-                <div class="circle neon neon-circle outer five" id="5"></div>
-                <div class="circle neon neon-circle outer six" id="6"></div>
-                <div class="circle neon neon-circle outer seven" id="7"></div>
+                <div class="circle neon neon-circle highlighted zero" id="0"></div>
+                <div class="circle neon neon-circle one" id="1"></div>
+                <div class="circle neon neon-circle two" id="2"></div>
+                <div class="circle neon neon-circle three" id="3"></div>
+                <div class="circle neon neon-circle four" id="4"></div>
+                <div class="circle neon neon-circle five" id="5"></div>
+                <div class="circle neon neon-circle six" id="6"></div>
+                <div class="circle neon neon-circle seven" id="7"></div>
                 <div class="neon-button disabled" id="play-button" onClick="resetGame()">Play</div>
                 <div class="neon-button" id="help-button" onClick="loadInstructionsModal()">Help</div>
             </div>
         </div>
-        <!-- <audio id="audio"></audio> -->
     </div>
     
     <!--FOOTER-->

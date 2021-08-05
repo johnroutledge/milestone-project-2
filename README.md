@@ -120,6 +120,8 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 * Google Fonts
 * Google Dev Tools 
 * Google Lighthouse
+* W3C Validator (to check validity of HTML and CSS)
+* Code Beautify (to beautify JavaScript)
 
 ***
 
@@ -216,7 +218,9 @@ All subsequent audio files play without delay. Having tried various fixes (using
 within the JavaScript.  The countdown timer was originally within its own function, but calling this prior to starting the main game timer resulted in both timers running concurrently which caused multiple DOM updates at the same time.  To rectify this, I took the countdown timer out of its own function and put it into a loop in the playGame function which removed any synchronicity issues and fixed the bug.  ***INCLUDE SCREENSHOT OF CODE
 4. After clicking the play button, it was discovered that it could be clicked again before becoming
 disabled and so causing further instances of the resetGame function being called. This resulted in it being possible to start multiple games at the same time. Having inspected the code, it was discovered that both the play and help buttons were being disabled within the countdown timer loop. To fix the bug, the code which disables both the play and help buttons was simply moved to the top of the resetGame function.  ***INCLUDE SCREENSHOT OF CODE
-5. When running the game with the DevTools console open, the error 'Uncaught (in promise) DOMException: The play() request was interrupted by a new load request' was flagged up (see image below). Originally, the audio files for the game sounds were played through an audio element in the index.html file using JavaScript. I was able to remove this element and play all audio files purely within the JavaScript code. Following this code change, the error no longer occurred. ***INCLUDE SCREENSHOT
+5. When running the game with the DevTools console open, the error 'Uncaught (in promise) DOMException: The play() request was interrupted by a new load request' was flagged up (see image below). Originally, the audio files for the game sounds were played through an audio element in the index.html file using code in the index.js file. To fix this bug, I removed the audio element from the index.html file coded all game sounds to play purely via the index.js file.
+
+![Audio Bug](https://johnroutledge.github.io/milestone-project-2/assets/images/audio_bug.png "Audio Bug")
 
 ***
 
@@ -280,6 +284,7 @@ Pushing moves your work from the staging area to your repository.
 - To position the circles in a circular fashion, I gained help www.stackoverflow.com
 - The countdown and game timers used code adapted from 'How to set one minute counter in JavaScript' 
 found on www.stackoverflow.com
+- The blinking circle that highlights where the player should have clicked uses code taken from 'How to make blinking flashing text with CSS on www.stackoverflow.com
 - Matt Rudge at Code Institute for the basics behind the 'Register Modal' in the 'Whiskey Drop' mini-project which was adapted for my 'Instruction Modal'.
 
 **Acknowledgements**
