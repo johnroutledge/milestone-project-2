@@ -72,7 +72,7 @@ User Stories:
 
 **Structure**
 
-As it is a very straightforward and intuitive game, the wesbite is consequently a very simple one-page, no-scroll design.
+As it is a very straightforward and intuitive game, the website is consequently a very simple one-page, no-scroll design.
 
 
 **Skeleton**
