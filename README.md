@@ -201,7 +201,7 @@ All checks on the CSS file were clear on the first attempt as per screenshot bel
 ![Lighthouse](https://johnroutledge.github.io/milestone-project-2/assets/images/lighthouse_testing.png "Lighthouse")
 
 * Performance: this was initially 91% which was acceptable (see top Lighthouse results in image above). However, to improve load speed further, the 
-background image was saved at a reduced resolution as it doesn't detract from the gameplay UX. Also, references to JavaScript files in the index.html file were moved from the <head> element down to the end of the <body> element. Having 
+background image was saved at a reduced resolution as it doesn't detract from the gameplay UX. Also, references to JavaScript files in the index.html file were moved from the head element down to the end of the body element. Having 
 done both of these, performance was tested again and increased to 95% on mobile (see middle Lighthouse results in image above) and 99% on desktop (see lower Lighthouse results in image above).
 * Accessibility: was 98% after first test (see top Lighthouse results in image above). This was due to the contrast between the font color and 
 background on the instruction modal. Having changed the font color used on the instruction modal from a neon pink to a neon green, it went up to 100% on both mobile and desktop versions (see middle and bottom Lighthouse results in image above).
