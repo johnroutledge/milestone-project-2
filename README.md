@@ -48,7 +48,7 @@ Pop Bang Boing is the ideal site for such people because:
 * [Technologies Employed](#technologies-employed)
 * [Testing](#testing)
 * [Deployment](#deployment)
-* [Acknowledgements](#credit)
+* [Credits](#credits)
 
 ***
 
@@ -72,9 +72,7 @@ User Stories:
 
 **Structure**
 
-To make sure the game intuitive to navigate and play, I kept the controls in a central position. This is very important for 
-mobile users as it allows for one-handed gameplay and also for desktop users as it keeps mouse-movement to a single movement.
-Through a minimum of visual content, I also reduced distraction and maximized engagement.
+As it is a very straightforward and intuitive game, the wesbite is consequently a very simple one-page, no-scroll design.
 
 
 **Skeleton**
@@ -82,12 +80,12 @@ Through a minimum of visual content, I also reduced distraction and maximized en
 ![Wireframes](https://johnroutledge.github.io/milestone-project-2/assets/images/ms2_gameplay_wireframes.png "Wireframes")
 
 To make sure the game intuitive to navigate and play, I kept the controls in a central position. This is very important for 
-mobile users as it allows for one-handed gameplay and also for desktop users as it keeps mouse-movement to a single movement.
+mobile users as it allows for one-handed gameplay and also for desktop users as it keeps mouse-movement to a single movement, whatever the screen size and resolution.
 Through a minimum of visual content, I also reduced distraction and maximized engagement.
 
 **Surface**
 
-The 'arcade' font was chosen to give a classic arcade game feel, while the neon colour scheme added to this style.  The colour scheme was chosen as it feels kitsch and retro, while at the same time being visually stimulating.
+The 'arcade' font was chosen to give a classic arcade game feel, while the neon colour scheme added to this style.  The colour scheme was chosen as it feels kitsch and retro, while at the same time being visually stimulating. The classic arcade sound effects and background also enhances the retro feel of the game and makes it even more appealing to fans of old-school arcade games. 
 
 ***
 
@@ -100,6 +98,7 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 * Neon color scheme and fonts to give a retro feel
 * Classic game play sound effects to maintain the retro feel and also give extra user feedback
 * Instructions that load as a modal when page is loaded and also when 'help' button is pressed
+* Flashing button to indicate which button the player should have clicked after making a mistake
 * High score area to add an element of competitiveness
 
 **Future Features to Implement**
