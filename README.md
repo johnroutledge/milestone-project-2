@@ -174,7 +174,7 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 
 **Testing Responsiveness**
 
-![Responsiveness](https://johnroutledge.github.io/milestone-project-2/assets/images/responsiveness_screenshots.png "Responsiveness")
+![Responsiveness](https://johnroutledge.github.io/milestone-project-2/assets/images/gameplay_screenshots.png "Responsiveness")
 
 The website was tested on various screen sizes using Chrome DevTools, from iPhone5 up to 5k screen. The image above shows the website on iPhone 5, iPad and laptop screens. On a 5k screen resolution (see image below), the gameplay area remained the same size as on a laptop (and didn't scale up) to retain ease of gameplay when using a mouse.
 
