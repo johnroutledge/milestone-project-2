@@ -58,7 +58,7 @@ Pop Bang Boing is the ideal site for such people because:
 
 User needs:  quick entertainment and gratification, a reaction challenge, intuitive gameplay, visual appeal.
 
-Being a big mobile gamer myself who only has a few minutes to spend playing a game, I decided that the game should fulfil the following needs: be visually pleasing, provide quick feedback and gratification, be extremely quick to pick up.
+Being a big mobile gamer myself who only has a few minutes to spend playing a game, I decided that the game should fulfil the following needs: be visually pleasing, provide quick feedback and gratification, and be extremely easy to pick up.
 
 
 **Scope**
@@ -96,7 +96,7 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 
 **Implemented**
 * Highlighted buttons on hover to enhance the UX and intuitiveness of gameplay
-* Random color each time action word changes to emphasise when a new action appears
+* Random color each time action word changes to emphasize when a new action appears
 * Neon color scheme and fonts to give a retro feel
 * Classic game play sound effects to maintain the retro feel and also give extra user feedback
 * Instructions that load as a modal when page is loaded and also when 'help' button is pressed
@@ -129,12 +129,12 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 
 |  Test Label                                   | Action         | Expected Outcome                                          | Test Outcome  |
 |-----------------------------------------------|----------------|-----------------------------------------------------------|---------------|
-|  Initial page load                            | Page load      |  Instrucion modal should appear on top                    | PASS          |
+|  Initial page load                            | Page load      |  Instruction modal should appear on top                    | PASS          |
 |  Instruction modal close button               | Click          |  Instruction modal should close when clicked              | PASS          |
 |  Marquee text                                 | Page load      |  Should scroll consistently at all times                  | PASS          |
 |  Help button                                  | Pre-play       |  Should be enabled and highlighted on focus               | PASS          |
 |  Play button                                  | Pre-play       |  Should be enabled and highlighted on focus               | PASS          |
-|  Help button                                  | Click          |  Instrucion modal should appear on top                    | PASS          |
+|  Help button                                  | Click          |  Instruction modal should appear on top                    | PASS          |
 |  Play button                                  | Click          |  Countdown should trigger followed by game start          | PASS          |
 |  Eight circle buttons                         | Pre-play       |  Should be disabled pre-play                              | PASS          |
 |  Help button                                  | In-play        |  Should be disabled in-play                               | PASS          |
@@ -165,7 +165,7 @@ The 'arcade' font was chosen to give a classic arcade game feel, while the neon 
 **Testing User Stories**
 
 1. As someone who only has a few minutes to spare, I want a game that can be picked up and put down without any commitment.
-* Yes, the game requires mimimal time investment (30 seconds per game) with no need to revisit the game in terms of saving progress.
+* Yes, the game requires minimal time investment (30 seconds per game) with no need to revisit the game in terms of saving progress.
 2. As someone short on time, I need a game which is intuitive to play.
 * Yes, by showing the instructions on page load and having responsive gameplay feedback (both visual and audible), the game is very intuitive.
 3. As a person who enjoys a challenge, I want a game to test my reflexes.
@@ -211,12 +211,12 @@ background on the instruction modal. Having changed the font color used on the i
 
 **Notable bug fixes**
 
-1. When the first play() function is called, there is a noticable delay before the audio file is played. 
+1. When the first play() function is called, there is a noticeable delay before the audio file is played. 
 All subsequent audio files play without delay. Having tried various fixes (using MP3 files instead of WAV) without success, I decided to just play an empty sound before the start of the game. This fixed the problem as now the sounds are immediate when clicking circles during gameplay.
-2. Having played the game numerous times to make sure it played correctly, I noticed that when landing on circle number 0 (in the 12 o'clock position) from an anti-clockwise direction, if the next action word was 'boing' then the game flagged up wrong when clicking on the correct circle (number six). Having done a console.log to see which circle it was expecting, it turned out to be circle seven rather than circle six.  After looking at the code to see what the error could be, I discovered that I had mis-calculated when experiencing a negative number in my if...else if statement in the calculateCorrectCircle function.
+2. Having played the game numerous times to make sure it played correctly, I noticed that when landing on circle number 0 (in the 12 o'clock position) from an anti-clockwise direction, if the next action word was 'boing' then the game flagged up wrong when clicking on the correct circle (number six). Having done a console.log to see which circle it was expecting, it turned out to be circle seven rather than circle six.  After looking at the code to see what the error could be, I discovered that I had miscalculated when experiencing a negative number in my if...else if statement in the 'calculateCorrectCircle' function.
 3. The three-second countdown timer on game start was very buggy initially.  Having researched this and discussing it with my mentor, this issue was found to be synchronicity
-within the JavaScript.  The countdown timer was originally within its own function, but calling this prior to starting the main game timer resulted in both timers running concurrently which caused multiple DOM updates at the same time.  To rectify this, I took the countdown timer out of its own function and put it into a loop in the playGame function which removed any synchronicity issues and fixed the bug.
-4. After clicking the play button, it was discovered that it could be clicked again before becoming disabled and so causing further instances of the resetGame function being called. This resulted in it being possible to start multiple games at the same time. Having inspected the code, it was discovered that both the play and help buttons were being disabled within the countdown timer loop. To fix the bug, the code which disables both the play and help buttons was simply moved to the top of the resetGame function.
+within the JavaScript.  The countdown timer was originally within its own function, but calling this prior to starting the main game timer resulted in both timers running concurrently which caused multiple DOM updates at the same time.  To rectify this, I took the countdown timer out of its own function and put it into a loop in the 'playGame' function which eradicated any synchronicity issues and fixed the bug.
+4. After clicking the play button, it was discovered that it could be clicked again before becoming disabled and so causing further instances of the 'resetGame' function being called. This resulted in it being possible to start multiple games at the same time. Having inspected the code, it was discovered that both the play and help buttons were being disabled within the countdown timer loop. To fix the bug, the code which disables both the play and help buttons was simply moved to the top of the 'resetGame' function.
 5. When running the game with the DevTools console open, the error 'Uncaught (in promise) DOMException: The play() request was interrupted by a new load request' was flagged up (see image below). Originally, the audio files for the game sounds were played through an audio element in the index.html file using code in the index.js file. To fix this bug, I removed the audio element from the index.html file coded all game sounds to play purely via the index.js file.
 
 ![Audio Bug](https://johnroutledge.github.io/milestone-project-2/assets/images/audio_bug.png "Audio Bug")
@@ -281,7 +281,7 @@ Pushing moves your work from the staging area to your repository.
 
 - The neon color scheme and effect was adapted from Kevin Powell's YouTube channel.
 - To position the circles in a circular fashion, I gained help www.stackoverflow.com
-- Recreating the marquee text in CSS was taken from 
+- Recreating the marquee text in CSS was taken and adapted from www.jsfiddle.net
 - The countdown and game timers used code adapted from 'How to set one minute counter in JavaScript' 
 found on www.stackoverflow.com
 - The blinking circle that highlights where the player should have clicked uses code taken from 'How to make blinking flashing text with CSS' found on www.stackoverflow.com
